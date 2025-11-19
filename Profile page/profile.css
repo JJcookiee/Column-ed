@@ -1,5 +1,6 @@
 * {
   font-family: "Inter";
+  font-weight: bold;
 }
 
 @font-face {
@@ -52,8 +53,8 @@ body {
 
 /* Style the active/current link*/
 .header a.active {
-  background-color: dodgerblue;
-  color: white;
+  background-color: var(--green-color);
+  color: black;
 }
 
 /* Float the link section to the right */
