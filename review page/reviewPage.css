@@ -1,6 +1,10 @@
 @font-face {
-  font-family: myFont; /* set name */
+  font-family: "Inter"; /* set name */
   src: url(Inter/Inter-VariableFont_opsz\,wght.ttf); /* url of the font */
+}
+
+html, body {
+    height:100%;
 }
 
 body {
@@ -12,6 +16,7 @@ body {
   overflow: hidden;
   background-color: #f1f1f1;
   padding: 20px 10px;
+  margin-bottom: 1%;
 }
 
 /* Style the header links */
@@ -59,12 +64,37 @@ body {
   .header-right {
     float: none;
   }
+}
 
-  .layout {
-  overflow: hidden;
-  background-color: #4f3636;
-  height: 100%;
-  height: 50px;
-  width: 50px;
+.layout{
+  background-color: white;
+  height: 88%;
+  margin: 0 auto;
+  padding: 1%;
+  width: 50%;
+  align-items: center;
 }
+
+
+.title{
+  text-align: center;
+  padding: 1%;
+  font-family: "Inter";
+  font-size: 30px;
 }
+
+.textarea{
+  background-color: white;
+  color: #666666;
+  padding: 1em;
+  border-radius: 10px;
+  border: 2px solid;
+  outline: none;
+  font-size: 16px;
+  resize: none;
+  width: 94%;
+  height: 25%;
+  margin-top: 3%;
+  font-family: "Inter";
+}
+
