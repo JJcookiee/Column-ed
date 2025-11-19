@@ -5,3 +5,7 @@
   --green-color: #99AA38;
   --blue-color: #99ADD6;
 }
+
+body {
+   background-color: #4e4e4e; 
+}
