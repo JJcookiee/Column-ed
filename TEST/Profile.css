@@ -1,0 +1,161 @@
+@font-face {
+  font-family: "Inter";
+  src: url(/Inter/Inter-Italic-VariableFont_opsz\,wght.ttf) format('ttf');
+  font-weight: bold;
+}
+
+:root {
+  --bg-color: #4e4e4e;
+  --text-color: #F1EDEE;
+  --red-color: #DB324D;
+  --green-color: #99AA38;
+  --blue-color: #99ADD6;
+}
+
+body {
+    margin: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg-color);
+    color: #e6e6e6;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+/* Header container */
+.header {
+  display: flex;
+  justify-content: space-between; /* Logo left, links right */
+  align-items: center;
+  padding: 12px 20px;
+  background: #616d86; /* optional */
+}
+
+/* Style the logo link */
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+}
+
+/* Right side links */
+.header-right {
+  display: flex;
+  gap: 10px;
+  font-weight: bold;
+}
+
+/* Individual links */
+.header a {
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 4px;
+}
+
+.header a:hover {
+  background-color: var(--red-color);
+  color: black;
+}
+
+.header a.active {
+  background-color: var(--green-color);
+  color: black;
+}
+
+/* Responsive */
+@media screen and (max-width: 500px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-right {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Header */
+.profile-header {
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    background: var(--blue-color);
+    border-bottom: 1px solid #333;
+}
+
+.avatar img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 3px solid #444;
+}
+
+.profile-info {
+    margin-left: 25px;
+}
+
+.profile-info h1 {
+    margin: 0;
+    font-size: 2.4rem;
+    color: #111;
+}
+
+.username {
+    color: #616161;
+    margin-top: 3px;
+}
+
+.bio {
+    margin-top: 8px;
+    max-width: 600px;
+    line-height: 1.4;
+    color: #111;
+}
+
+/* Stats */
+.stats {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background: #111;
+    border-bottom: 1px solid #333;
+    font-weight: bold;
+}
+
+.stat {
+    text-align: center;
+    margin: 0 40px;
+}
+
+.stat .num {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.stat .label {
+    color: #888;
+    font-size: 0.9rem;
+    text-decoration: none; /* removes underline */
+    display: inline-block;
+    transition: color 0.2s ease;
+}
+
+.stat .label:hover {
+    color: var(--red-color); /* or any hover color you like */
+    cursor: pointer;
+}
