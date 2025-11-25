@@ -24,9 +24,33 @@
     
     <div class="layout">
         <div class="title">{Content Name}</div>
-        <input type="checkbox" class="checkbox" name="logCheck" value="log">
-        <label for="logCheck">I watched this today</label>
+        <div class="checkboxDatePickerContainer">
+            <div class="checkBoxContainer">
+                <input type="checkbox" class="checkbox" name="logCheck" value="log">
+                <label for="logCheck">I watched this before</label>
+            </div>
+        
+            <div class="datePickerContainer">
+                <input type="date" class="datePicker" name="datePicker" value="dd/mm/yy">
+                <label class="labelDate" for="datePicker">Watched on</label>
+            </div>
+
+            
+        </div>
+        
         <textarea class="textarea" placeholder="Type your review..."></textarea>
+        <button class="post postButton">Post</button>
+        
+        <div class="starRating">
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <p class="currentRating">0 out of 5 stars</p>
+
+            <script src="starRating.js"></script>
+        </div>
     </div>
 </div>
 </body>

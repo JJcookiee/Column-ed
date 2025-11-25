@@ -14,9 +14,9 @@ body {
 
 .header {
   overflow: hidden;
-  background-color: #f1f1f1;
+  background-color: #F1EDEE;
   padding: 20px 10px;
-  margin-bottom: 1%;
+  margin-bottom: 7%;
 }
 
 /* Style the header links */
@@ -67,34 +67,108 @@ body {
 }
 
 .layout{
-  background-color: white;
-  height: 88%;
+  background-color: #F1EDEE;
+  height: 50%;
   margin: 0 auto;
   padding: 1%;
   width: 50%;
   align-items: center;
+  border-radius: 20px;
+  
 }
-
 
 .title{
   text-align: center;
   padding: 1%;
   font-family: "Inter";
   font-size: 30px;
+  background-color: #99add6;
+  border-radius: 20px;
 }
 
 .textarea{
-  background-color: white;
-  color: #666666;
+  background-color: rgb(219, 219, 219);
+  color: #000000;
   padding: 1em;
-  border-radius: 10px;
+  border-radius: 20px;
   border: 2px solid;
   outline: none;
   font-size: 16px;
   resize: none;
-  width: 94%;
-  height: 25%;
+  width: 96.5%;
+  height: 50%;
   margin-top: 3%;
   font-family: "Inter";
+  overflow: hidden;
 }
 
+.checkboxDatePickerContainer{
+  padding-top: 2%;
+  font-family: "Inter";
+  font-size: 19px;
+}
+
+.checkbox{
+  width: 15px;
+  height: 15px;
+}
+
+.post {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 20px;
+  margin-top: 1.6%;
+}
+
+.postButton {
+  background-color: #05ca82; 
+  color: black; 
+  border: 2px solid #04AA6D;
+  float: right;
+  margin-right: 5%;
+}
+
+.postButton:hover {
+  background-color: #03a369; 
+  color: rgb(0, 0, 0);
+}
+
+.checkBoxContainer{
+  width: 50%;
+  float: left;
+}
+
+.datePickerContainer{
+  width: 50%;
+  float: right;
+}
+
+.starRating{
+  user-select: none;
+  width: 21%;
+  margin-left: 5%;
+}
+
+.star{
+  font-size: 30px;
+  color: #ff9800;
+  background-color: unset;
+  border: none;
+}
+
+.star:hover{
+  cursor: pointer;
+}
+
+.currentRating{
+  user-select: none;
+  text-align: center;
+}
