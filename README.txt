@@ -1,10 +1,10 @@
 Roles:
-jacob - 
-xen - 
-jake - 
-andrew - 
-luoie - 
-hani - 
+jacob - product owner/backend developer
+xen - ?
+jake - frontend dev
+andrew - frontend dev
+luoie - ?
+hani - frontend dev
 
 api instructions
 (will be updated by jacob once hes worked this out)
