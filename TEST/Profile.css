@@ -159,3 +159,79 @@ body {
     color: var(--red-color); /* or any hover color you like */
     cursor: pointer;
 }
+
+* {
+  box-sizing: border-box; /* ensures borders don't expand element size */
+}
+
+.poster-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 60px;               /* space between rectangles and info section */
+  margin: 50px auto;
+  padding: 0 60px;         /* even horizontal spacing */
+}
+
+.rectangle-row {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 35px;               /* even spacing between rectangles */
+  width: 70%;              /* space for the posters */
+  padding: 20px;
+}
+
+.rectangle {
+  flex: 0 0 160px;         /* fixed width for each rectangle */
+  height: 240px;           /* portrait ratio */
+  background-color: #d3d3d3;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  text-decoration: none;
+  border: 3px solid transparent; /* invisible border to prevent layout shift */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.2s ease;
+}
+
+.rectangle:hover {
+  transform: scale(1.03);     /* slight zoom on hover */
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+  border-color: #b22222;      /* red border on hover */
+  z-index: 1;                 /* ensures hover sits above others */
+}
+
+/* Vertical separator line */
+.vertical-separator {
+  width: 2px;
+  background-color: #bbb;
+  height: 520px;           /* matches rectangle height */
+  align-self: flex-start;  /* positions line near top */
+  margin-top: 10px;
+}
+
+/* Info section */
+.info-section {
+  flex: 1;
+  padding-left: 20px;
+}
+
+.info-section h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+  color: #333;
+  text-align: center;
+}
+
+.info-section p {
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+
+.info-section h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
