@@ -19,6 +19,14 @@ body {
     color: #e6e6e6;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: #616d86;
+}
+
 .header a {
   float: left;
   color: black;
@@ -30,19 +38,27 @@ body {
   border-radius: 4px;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 20px;
-  background: #616d86;
-}
-
 .header a.logo {
   font-size: 25px;
   font-weight: bold;
   color: black;
   text-decoration: none;
+}
+
+.header-right {
+  display: flex;
+  gap: 10px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: var(--red-color);
+  color: black;
+}
+
+.header a.active {
+  background-color: var(--green-color);
+  color: black;
 }
 
 .searchbar {
@@ -78,31 +94,6 @@ body {
   color: rgba(255, 255, 255, 0.50);
 }
 
-.header-right {
-  display: flex;
-  gap: 10px;
-  font-weight: bold;
-}
-
-.header a {
-  color: black;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px;
-  border-radius: 4px;
-}
-
-.header a:hover {
-  background-color: var(--red-color);
-  color: black;
-}
-
-.header a.active {
-  background-color: var(--green-color);
-  color: black;
-}
-
 @media screen and (max-width: 500px) {
   .header {
     flex-direction: column;
@@ -116,19 +107,19 @@ body {
   }
 }
 
+.avatar img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 3px solid #444;
+}
+
 .profile-header {
     display: flex;
     align-items: center;
     padding: 40px;
     background: var(--blue-color);
     border-bottom: 1px solid #333;
-}
-
-.avatar img {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    border: 3px solid #444;
 }
 
 .profile-info {
@@ -180,13 +171,15 @@ body {
     font-weight: bold;
     text-decoration: none;
     display: inline-block;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .stat .label:hover {
     color: var(--red-color);
     cursor: pointer;
+    transform: scale(1.1);
 }
+
 
 .info-section {
   text-align: left;
@@ -216,12 +209,13 @@ body {
   color: #9c9c9c;
   font-size: 0.9rem;
   font-weight: bold;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .followers .label:hover {
     color: var(--red-color);
     cursor: pointer;
+    transform: scale(1.1);
 }
 
 * {
@@ -289,7 +283,6 @@ body {
   font-size: 1em;
   line-height: 1.5;
 }
-
 
 .info-section h2 {
   margin-top: 0;
