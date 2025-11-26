@@ -1,10 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Column-ed</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Column-ed</title>
+    <link rel="stylesheet" href="home.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-  
-</body>
+<body class="dark-mode">
 
+    <nav class="navbar">
+        <div class="color-bands">
+            <div class="band red"></div>
+            <div class="band green"></div>
+            <div class="band blue"></div>
+        </div>
+
+        <div class="nav-content">
+            <div class="logo">Column-ed</div>
+
+            <input type="text" class="search" placeholder="Search..." />
+
+            <div class="nav-actions">
+                <button class="nav-btn">Login</button>
+                <button class="nav-btn">Sign Up</button>
+                <button class="nav-btn"><span class="bell">🔔</span></button>
+                <img src="https://via.placeholder.com/40" class="pfp" />
+                <button class="theme-toggle">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="featured-slider">
+        <button class="arrow left">❮</button>
+        <div class="slides">
+            <div class="slide red-glow">Slide 1</div>
+            <div class="slide green-glow">Slide 2</div>
+            <div class="slide blue-glow">Slide 3</div>
+        </div>
+        <button class="arrow right">❯</button>
+    </section>
+
+    <main class="main-layout">
+
+        <aside class="trending">
+            <h2>Trending</h2>
+            <div class="trend-item">Movie A — Very Popular</div>
+            <div class="trend-item">Series B — Trending Fast</div>
+        </aside>
+
+        <section class="reviews">
+            <div class="review">
+                <img src="https://via.placeholder.com/50" class="rev-pfp" />
+                <div class="rev-info">
+                    <h3>Movie Title</h3>
+                    <p>This movie was amazing... (Review content)</p>
+                    <button class="rev-btn comments-btn">Comments</button>
+                </div>
+            </div>
+        </section>
+
+        <aside class="following">
+            <h2>Following</h2>
+            <div class="follow-item">User 1</div>
+            <div class="follow-item">User 2</div>
+        </aside>
+
+    </main>
+
+    <footer class="footer">© 2025 Column-ed — All Rights Reserved</footer>
+
+    <div class="comments-modal hidden">
+        <div class="comments-box">
+            <h2>Comments</h2>
+            <p>Comment section coming soon...</p>
+            <button class="close-comments">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
