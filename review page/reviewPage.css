@@ -106,6 +106,7 @@ body {
   padding-top: 2%;
   font-family: "Inter";
   font-size: 19px;
+  column-count: 2;
 }
 
 .checkbox{
