@@ -1,0 +1,237 @@
+@font-face {
+  font-family: "Inter";
+  src: url(/Inter/Inter-Italic-VariableFont_opsz\,wght.ttf) format('ttf');
+  font-weight: bold;
+}
+
+:root {
+  --bg-color: #4e4e4e;
+  --text-color: #F1EDEE;
+  --red-color: #DB324D;
+  --green-color: #99AA38;
+  --blue-color: #99ADD6;
+}
+
+body {
+    margin: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg-color);
+    color: #e6e6e6;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+/* Header container */
+.header {
+  display: flex;
+  justify-content: space-between; /* Logo left, links right */
+  align-items: center;
+  padding: 12px 20px;
+  background: #616d86; /* optional */
+}
+
+/* Style the logo link */
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+}
+
+/* Right side links */
+.header-right {
+  display: flex;
+  gap: 10px;
+  font-weight: bold;
+}
+
+/* Individual links */
+.header a {
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 4px;
+}
+
+.header a:hover {
+  background-color: var(--red-color);
+  color: black;
+}
+
+.header a.active {
+  background-color: var(--green-color);
+  color: black;
+}
+
+/* Responsive */
+@media screen and (max-width: 500px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-right {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Header */
+.profile-header {
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    background: var(--blue-color);
+    border-bottom: 1px solid #333;
+}
+
+.avatar img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 3px solid #444;
+}
+
+.profile-info {
+    margin-left: 25px;
+}
+
+.profile-info h1 {
+    margin: 0;
+    font-size: 2.4rem;
+    color: #111;
+}
+
+.username {
+    color: #616161;
+    margin-top: 3px;
+}
+
+.bio {
+    margin-top: 8px;
+    max-width: 600px;
+    line-height: 1.4;
+    color: #111;
+}
+
+/* Stats */
+.stats {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background: #111;
+    border-bottom: 1px solid #333;
+    font-weight: bold;
+}
+
+.stat {
+    text-align: center;
+    margin: 0 40px;
+}
+
+.stat .num {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.stat .label {
+    color: #888;
+    font-size: 0.9rem;
+    text-decoration: none; /* removes underline */
+    display: inline-block;
+    transition: color 0.2s ease;
+}
+
+.stat .label:hover {
+    color: var(--red-color); /* or any hover color you like */
+    cursor: pointer;
+}
+
+* {
+  box-sizing: border-box; /* ensures borders don't expand element size */
+}
+
+.poster-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 60px;               /* space between rectangles and info section */
+  margin: 50px auto;
+  padding: 0 60px;         /* even horizontal spacing */
+}
+
+.rectangle-row {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 35px;               /* even spacing between rectangles */
+  width: 70%;              /* space for the posters */
+  padding: 20px;
+}
+
+.rectangle {
+  flex: 0 0 160px;         /* fixed width for each rectangle */
+  height: 240px;           /* portrait ratio */
+  background-color: #d3d3d3;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  text-decoration: none;
+  border: 3px solid transparent; /* invisible border to prevent layout shift */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.2s ease;
+}
+
+.rectangle:hover {
+  transform: scale(1.03);     /* slight zoom on hover */
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+  border-color: #b22222;      /* red border on hover */
+  z-index: 1;                 /* ensures hover sits above others */
+}
+
+/* Vertical separator line */
+.vertical-separator {
+  width: 2px;
+  background-color: #bbb;
+  height: 520px;           /* matches rectangle height */
+  align-self: flex-start;  /* positions line near top */
+  margin-top: 10px;
+}
+
+/* Info section */
+.info-section {
+  flex: 1;
+  padding-left: 20px;
+}
+
+.info-section h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+  color: #333;
+  text-align: center;
+}
+
+.info-section p {
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+
+.info-section h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
