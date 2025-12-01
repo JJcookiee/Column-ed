@@ -1,6 +1,10 @@
 <?php
 $dotenv = parse_ini_file(__DIR__ . '/.env');
 
+if (!$dotenv) {
+    die(".env file could not be parsed. Check formatting.");
+}
+
 $host = $dotenv['DB_HOST'];
 $db   = $dotenv['DB_NAME'];
 $user = $dotenv['DB_USER'];
@@ -15,7 +19,7 @@ $fields = parse_url($uri);
 // build the DSN including SSL settings
 $conn = "mysql:";
 $conn .= "host=" . $fields["host"];
-$conn .= ";port=" . $fields["port"];
+$conn .= ";port=" . $fields["port"];;
 $conn .= ";dbname=defaultdb";
 $conn .= ";sslmode=verify-ca;sslrootcert='C:\xampp\htdocs\Column-ed\db\ca.pem'";
 
@@ -27,3 +31,4 @@ try {
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage();
 }
+?>
