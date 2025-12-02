@@ -1,5 +1,5 @@
 create table media(
-    media_id int not null primary key,
+    media_id int not null primary key identity(1,1),
     title varchar(255) not null,
     descr varchar(500) not null,
     media_type int not null,
@@ -7,14 +7,14 @@ create table media(
 );
 
 create table users(
-    user_id int not null primary key,
+    user_id int not null primary key identity(1,1),
     user_name varchar(50) not null,
     password_hash varchar(50) not null,
     email varchar(255) not null
 );
 
 create table reviews(
-    review_id int not null primary key,
+    review_id int not null primary key identity(1,1),
     title varchar(255) not null,
     post_date date not null,
     descr varchar(500) not null,
@@ -23,7 +23,7 @@ create table reviews(
 );
 
 create table comment(
-    comment_id int not null primary key,
+    comment_id int not null primary key identity(1,1),
     post_date date not null,
     comment_text varchar(500) not null,
     user_id int not null references users(user_id),
@@ -43,7 +43,7 @@ create table comment_likes(
 );
 
 create table diary(
-    diary_id int not null primary key,
+    diary_id int not null primary key identity(1,1),
     diary_date date not null,
     user_id int not null references users(user_id),
     media_id int not null references media(media_id)
@@ -55,7 +55,7 @@ create table media_cast(
 );
 
 create table cast_member(
-    cast_id int not null primary key,
+    cast_id int not null primary key identity(1,1),
     member_name varchar(50) not null
 );
 
@@ -65,7 +65,7 @@ create table media_types(
 );
 
 create table music(
-    music_id int not null primary key,
+    music_id int not null primary key identity(1,1),
     artist varchar(50) not null,
     producer varchar(50),
     duration time not null,
@@ -73,7 +73,7 @@ create table music(
 );
 
 create table TV_shows(
-    show_id int not null primary key,
+    show_id int not null primary key identity(1,1),
     director varchar(50) not null,
     producer varchar(50),
     episodes int not null default(1),
@@ -83,16 +83,16 @@ create table TV_shows(
 );
 
 create table books(
-    book_id int not null primary key,
+    book_id int not null primary key identity(1,1),
     author varchar(50) not null,
-    publiosher varchar(50),
+    publibsher varchar(50),
     pages int not null default(1),
     chapters int,
     media_id int not null references media(media_id)
 );
 
 create table films(
-    film_id int not null primary key,
+    film_id int not null primary key identity(1,1),
     director varchar(50) not null,
     runtime time not null,
     cast_id int not null references media_cast(cast_id),
