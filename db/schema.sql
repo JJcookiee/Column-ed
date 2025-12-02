@@ -41,3 +41,60 @@ create table comment_likes(
     user_id int not null references users(user_id),
     is_liked boolean not null
 );
+
+create table diary(
+    diary_id int not null primary key,
+    diary_date date not null,
+    user_id int not null references users(user_id),
+    media_id int not null references media(media_id)
+);
+
+create table media_cast(
+    cast_id int not null references cast_member(cast_id),
+    media_id int not null references media(media_id)
+);
+
+create table cast_member(
+    cast_id int not null primary key,
+    member_name varchar(50) not null
+);
+
+create table media_types(
+    media_type int not null primary key,
+    media_name varchar(50) not null,
+);
+
+create table music(
+    music_id int not null primary key,
+    artist varchar(50) not null,
+    producer varchar(50),
+    duration time not null,
+    media_id int not null references media(media_id)
+);
+
+create table TV_shows(
+    show_id int not null primary key,
+    director varchar(50) not null,
+    producer varchar(50),
+    episodes int not null default(1),
+    seasons int not null default(1),
+    cast_id int not null references media_cast(cast_id),
+    media_id int not null references media(media_id)
+);
+
+create table books(
+    book_id int not null primary key,
+    author varchar(50) not null,
+    publiosher varchar(50),
+    pages int not null default(1),
+    chapters int,
+    media_id int not null references media(media_id)
+);
+
+create table films(
+    film_id int not null primary key,
+    director varchar(50) not null,
+    runtime time not null,
+    cast_id int not null references media_cast(cast_id),
+    media_id int not null references media(media_id)
+);
