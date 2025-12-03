@@ -282,7 +282,7 @@ body {
 .vertical-separator {
   width: 2px;
   background-color: #bbb;
-  height: 520px;
+  height: 820px;
   align-self: flex-start;
   margin-top: 10px;
 }

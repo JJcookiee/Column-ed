@@ -52,32 +52,35 @@
     </section>
 
     <section class="poster-section">
-      <div class="rectangle-row">
-        <a href="#item1" class="rectangle"></a>
-        <a href="#item2" class="rectangle"></a>
-        <a href="#item3" class="rectangle"></a>
-        <a href="#item4" class="rectangle"></a>
-        <a href="#item5" class="rectangle"></a>
-        <a href="#item6" class="rectangle"></a>
-        <a href="#item7" class="rectangle"></a>
-        <a href="#item8" class="rectangle"></a>
-      </div>
+      <div class="rectangle-row" id="rectangles"></div>
+
+      <script>
+        const container = document.getElementById("rectangles");
+
+        for (let i = 1; i <= 12; i++) {
+          const a = document.createElement("a");
+          a.href = `#item${i}`;
+          a.className = "rectangle";
+          container.appendChild(a);
+        }
+      </script>
+
       <div class="vertical-separator"></div>
       <div class="info-section">
-  <h2>Featured stuff?</h2>
+      <h2>Featured stuff?</h2>
 
-  <div class="follow-container">
-    <div class="followers">
-      <span class="num">401</span>
-      <a href="#followers" class="label">Followers</a>
-    </div>
+      <div class="follow-container">
+        <div class="followers">
+          <span class="num">401</span>
+          <a href="#followers" class="label">Followers</a>
+        </div>
 
-    <div class="followers">
-      <span class="num">224</span>
-      <a href="#following" class="label">Following</a>
+        <div class="followers">
+          <span class="num">224</span>
+          <a href="#following" class="label">Following</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
     </section>
   </body>
