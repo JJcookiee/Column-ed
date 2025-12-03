@@ -117,8 +117,20 @@ CREATE TABLE films (
     FOREIGN KEY (media_id) REFERENCES media(media_id)
 );
 
-create table to_watch(
-    to_watch_id int not null primary key identity(1, 1)
-    to_watch_date 
+CREATE TABLE to_watch(
+    to_watch_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    to_watch_date DATE NOT NULL,
+    user_id INT NOT NULL,
+    media_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (media_id) REFERENCES media(media_id)
+);
 
-)
+CREATE TABLE favourites(
+    favourites_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    favourites_date DATE NOT NULL,
+    user_id INT NOT NULL,
+    media_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (media_id) REFERENCES media(media_id)
+);
