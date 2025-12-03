@@ -1,33 +1,35 @@
+<?php include 'databasePHP.php';?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Column-ed</title>
-    <link rel="icon" type="image/x-icon" href="/Profile page/Column-ed.png"/>
-    <link rel="stylesheet" href="/Profile page/Profile.css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="icon" type="image/x-icon" href="/Column-ed/Profile page/Column-ed.png"/>
+    <link rel="stylesheet" href="/Column-ed/Profile page/Profile.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
+  </head>
   <body>
     <header class="header">
       <a href="#home" class="logo">Column-ed</a>
       <form>
         <div class="searchbar">
           <span class="search-icon material-symbols-outlined">search</span>
-          <input class="search-input" type="search" placeholder="Search for media...">
+          <input class="search-input" type="search" placeholder="Search for media...                     ">
         </div>
       </form>
       </div>
       <div class="header-right">
-        <a href="/index.html" class="material-symbols-outlined home-icon" aria-hidden="true" alt="Home">home</a>
-        <a id="active" href="/Profile page/Profile.html" class="material-symbols-outlined profile-icon">account_circle</a>
-        <a href="#notifications" class="material-symbols-outlined noti-icon">notifications</a>
-        <a href="/Watch and Watched list/Watchlist.html" class="material-symbols-outlined tv-icon">live_tv</a>
+        <a href="#home">Home</a>
+        <a class="active" href="#profile">Profile</a>
+        <a href="#notifications">Notifications</a>
+        <a href="#watchlist">Watchlist</a>
       </div>
     </header>
 
     <section class="profile-header">
       <div class="avatar">
-        <img src="/Profile page/scorsese.png" alt="Avatar" />
+        <img src="/Column-ed/Profile page/scorsese.png" alt="Avatar" />
       </div>
       <div class="profile-info">
         <h1>FilmLover123</h1>
@@ -38,11 +40,11 @@
 
     <section class="stats">
       <div class="stat">
-        <span class="num">401</span>
+        <span class="num"><?php echo $total_films;?></span>
         <a href="#films" class="label">Films</a>
       </div>
       <div class="stat">
-        <span class="num">76</span>
+        <span class="num"><?php echo $total_reviews;?></span>
         <a href="#reviews" class="label">Reviews</a>
       </div>
       <div class="stat">
@@ -73,7 +75,7 @@
     </div>
 
     <div class="followers">
-      <span class="num">224</span>
+      <span class="num">401</span>
       <a href="#following" class="label">Following</a>
     </div>
   </div>
