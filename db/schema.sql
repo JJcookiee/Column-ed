@@ -98,3 +98,9 @@ create table films(
     cast_id int not null references media_cast(cast_id),
     media_id int not null references media(media_id)
 );
+
+create table to_watch(
+    to_watch_id int not null primary key identity(1, 1)
+    to_watch_date 
+
+)
