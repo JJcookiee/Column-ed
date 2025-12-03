@@ -19,10 +19,6 @@ body {
     color: #e6e6e6;
 }
 
-::-webkit-scrollbar {
-    display: none;
-}
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -60,7 +56,7 @@ body {
   color: black;
 }
 
-.header a#active {
+.header a.active {
   background-color: var(--green-color);
   color: black;
 }
@@ -96,22 +92,6 @@ body {
 .search-input::placeholder,
 .search-icon {
   color: rgba(255, 255, 255, 0.50);
-}
-
-.header-right .home-icon {
-  font-size: 1.8rem;
-}
-
-.header-right .profile-icon {
-  font-size: 1.8rem;
-}
-
-.header-right .noti-icon {
-  font-size: 1.8rem;
-}
-
-.header-right .tv-icon {
-  font-size: 1.8rem;
 }
 
 @media screen and (max-width: 500px) {
