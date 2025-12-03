@@ -40,11 +40,11 @@
 
     <section class="stats">
       <div class="stat">
-        <span class="num"><?php echo $count;?></span>
+        <span class="num"><?php echo $total_films;?></span>
         <a href="#films" class="label">Films</a>
       </div>
       <div class="stat">
-        <span class="num">76</span>
+        <span class="num"><?php echo $total_reviews;?></span>
         <a href="#reviews" class="label">Reviews</a>
       </div>
       <div class="stat">
