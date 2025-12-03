@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Column-ed</title>
+    <link rel="icon" type="image/x-icon" href="/Watch and Watched list/Column-ed.png"/>
+    <link rel="stylesheet" href="/Watch and Watched list/Watchlist.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <header class="header">
+      <a href="/index.html" class="logo">Column-ed</a>
+      <form>
+        <div class="searchbar">
+          <span class="search-icon material-symbols-outlined">search</span>
+          <input class="search-input" type="search" placeholder="Search for media...">
+        </div>
+      </form>
+      </div>
+      <div class="header-right">
+        <a href="/index.html" class="material-symbols-outlined home-icon">home</a>
+        <a href="/Profile page/Profile.html" class="material-symbols-outlined profile-icon">account_circle</a>
+        <a href="#notifications" class="material-symbols-outlined noti-icon">notifications</a>
+        <a id="active" href="/Watch and Watched list/Watchlist.html" class="material-symbols-outlined tv-icon">live_tv</a>
+      </div>
+    </header>
+
+    <section class="stats">
+      <div class="stat">
+        <span class="heading">Watchlist</span>
+        <span class="label">361</span>
+      </div>
+    </section>
+
+    <section class="poster-section">
+      <div class="rectangle-row" id="rectangles"></div>
+
+      <script>
+        const container = document.getElementById("rectangles");
+
+        for (let i = 1; i <= 24; i++) {
+          const a = document.createElement("a");
+          a.href = `#item${i}`;
+          a.className = "rectangle";
+          container.appendChild(a);
+        }
+      </script>
+    </section>
+  </body>
+</html>

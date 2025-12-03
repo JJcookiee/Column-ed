@@ -100,7 +100,7 @@ CREATE TABLE TV_shows (
 CREATE TABLE books (
     book_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     author VARCHAR(50) NOT NULL,
-    publibsher VARCHAR(50),
+    publisher VARCHAR(50),
     pages INT NOT NULL DEFAULT 1,
     chapters INT,
     media_id INT NOT NULL,
