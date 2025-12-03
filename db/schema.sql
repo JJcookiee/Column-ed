@@ -1,100 +1,136 @@
-create table media(
-    media_id int not null primary key identity(1,1),
-    title varchar(255) not null,
-    descr varchar(500) not null,
-    media_type int not null,
-    release_date date not null 
+CREATE TABLE media (
+    media_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    descr VARCHAR(500) NOT NULL,
+    media_type INT NOT NULL,
+    release_date DATE NOT NULL
 );
 
-create table users(
-    user_id int not null primary key identity(1,1),
-    user_name varchar(50) not null,
-    password_hash varchar(50) not null,
-    email varchar(255) not null
+CREATE TABLE users (
+    user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_name VARCHAR(50) NOT NULL,
+    password_hash VARCHAR(50) NOT NULL,
+    email VARCHAR(255) NOT NULL
 );
 
-create table reviews(
-    review_id int not null primary key identity(1,1),
-    title varchar(255) not null,
-    post_date date not null,
-    descr varchar(500) not null,
-    media_id int not null references media(media_id),
-    user_id int not null references users(user_id)
+CREATE TABLE reviews (
+    review_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    post_date DATE NOT NULL,
+    descr VARCHAR(500) NOT NULL,
+    media_id INT NOT NULL,
+    user_id INT NOT NULL,
+    FOREIGN KEY (media_id) REFERENCES media(media_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-create table comment(
-    comment_id int not null primary key identity(1,1),
-    post_date date not null,
-    comment_text varchar(500) not null,
-    user_id int not null references users(user_id),
-    review_id int not null references reviews(review_id)
+CREATE TABLE comment (
+    comment_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    post_date DATE NOT NULL,
+    comment_text VARCHAR(500) NOT NULL,
+    user_id INT NOT NULL,
+    review_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (review_id) REFERENCES reviews(review_id)
 );
 
-create table review_likes(
-    review_id int not null references reviews(review_id),
-    user_id int not null references users(user_id),
-    is_liked boolean not null
+CREATE TABLE review_likes (
+    review_id INT NOT NULL,
+    user_id INT NOT NULL,
+    is_liked BOOLEAN NOT NULL,
+    FOREIGN KEY (review_id) REFERENCES reviews(review_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-create table comment_likes(
-    comment_id int not null references comments(comment_id),
-    user_id int not null references users(user_id),
-    is_liked boolean not null
+CREATE TABLE comment_likes (
+    comment_id INT NOT NULL,
+    user_id INT NOT NULL,
+    is_liked BOOLEAN NOT NULL,
+    FOREIGN KEY (comment_id) REFERENCES comment(comment_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-create table diary(
-    diary_id int not null primary key identity(1,1),
-    diary_date date not null,
-    user_id int not null references users(user_id),
-    media_id int not null references media(media_id)
+CREATE TABLE cast_member (
+    cast_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    member_name VARCHAR(50) NOT NULL
 );
 
-create table media_cast(
-    cast_id int not null references cast_member(cast_id),
-    media_id int not null references media(media_id)
+CREATE TABLE media_cast (
+    cast_id INT NOT NULL,
+    media_id INT NOT NULL,
+    FOREIGN KEY (cast_id) REFERENCES cast_member(cast_id),
+    FOREIGN KEY (media_id) REFERENCES media(media_id)
 );
 
-create table cast_member(
-    cast_id int not null primary key identity(1,1),
-    member_name varchar(50) not null
+CREATE TABLE media_types (
+    media_type INT NOT NULL PRIMARY KEY,
+    media_name VARCHAR(50) NOT NULL
 );
 
-create table media_types(
-    media_type int not null primary key,
-    media_name varchar(50) not null,
+CREATE TABLE diary (
+    diary_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    diary_date DATE NOT NULL,
+    user_id INT NOT NULL,
+    media_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (media_id) REFERENCES media(media_id)
 );
 
-create table music(
-    music_id int not null primary key identity(1,1),
-    artist varchar(50) not null,
-    producer varchar(50),
-    duration time not null,
-    media_id int not null references media(media_id)
+CREATE TABLE music (
+    music_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    artist VARCHAR(50) NOT NULL,
+    producer VARCHAR(50),
+    duration TIME NOT NULL,
+    media_id INT NOT NULL,
+    FOREIGN KEY (media_id) REFERENCES media(media_id)
 );
 
-create table TV_shows(
-    show_id int not null primary key identity(1,1),
-    director varchar(50) not null,
-    producer varchar(50),
-    episodes int not null default(1),
-    seasons int not null default(1),
-    cast_id int not null references media_cast(cast_id),
-    media_id int not null references media(media_id)
+CREATE TABLE TV_shows (
+    show_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    director VARCHAR(50) NOT NULL,
+    producer VARCHAR(50),
+    episodes INT NOT NULL DEFAULT 1,
+    seasons INT NOT NULL DEFAULT 1,
+    cast_id INT NOT NULL,
+    media_id INT NOT NULL,
+    FOREIGN KEY (cast_id) REFERENCES media_cast(cast_id),
+    FOREIGN KEY (media_id) REFERENCES media(media_id)
 );
 
-create table books(
-    book_id int not null primary key identity(1,1),
-    author varchar(50) not null,
-    publibsher varchar(50),
-    pages int not null default(1),
-    chapters int,
-    media_id int not null references media(media_id)
+CREATE TABLE books (
+    book_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    author VARCHAR(50) NOT NULL,
+    publibsher VARCHAR(50),
+    pages INT NOT NULL DEFAULT 1,
+    chapters INT,
+    media_id INT NOT NULL,
+    FOREIGN KEY (media_id) REFERENCES media(media_id)
 );
 
-create table films(
-    film_id int not null primary key identity(1,1),
-    director varchar(50) not null,
-    runtime time not null,
-    cast_id int not null references media_cast(cast_id),
-    media_id int not null references media(media_id)
+CREATE TABLE films (
+    film_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    director VARCHAR(50) NOT NULL,
+    runtime TIME NOT NULL,
+    cast_id INT NOT NULL,
+    media_id INT NOT NULL,
+    FOREIGN KEY (cast_id) REFERENCES media_cast(cast_id),
+    FOREIGN KEY (media_id) REFERENCES media(media_id)
+);
+
+CREATE TABLE to_watch(
+    to_watch_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    to_watch_date DATE NOT NULL,
+    user_id INT NOT NULL,
+    media_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (media_id) REFERENCES media(media_id)
+);
+
+CREATE TABLE favourites(
+    favourites_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    favourites_date DATE NOT NULL,
+    user_id INT NOT NULL,
+    media_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (media_id) REFERENCES media(media_id)
 );
