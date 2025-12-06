@@ -114,44 +114,6 @@ body {
   font-size: 1.8rem;
 }
 
-.avatar img {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  border: 3px solid #444;
-}
-
-.profile-header {
-  display: flex;
-  align-items: center;
-  padding: 40px;
-  /* background: var(--blue-color); */
-  background: linear-gradient(to bottom, #616d86, var(--blue-color));
-  border-bottom: 1px solid #333;
-}
-
-.profile-info {
-  margin-left: 25px;
-}
-
-.profile-info h1 {
-  margin: 0;
-  font-size: 2.4rem;
-  color: #111;
-}
-
-.username {
-  color: #616161;
-  margin-top: 3px;
-}
-
-.bio {
-  margin-top: 8px;
-  max-width: 600px;
-  line-height: 1.4;
-  color: #111;
-}
-
 .stats {
   display: flex;
   justify-content: center;
@@ -162,67 +124,61 @@ body {
 }
 
 .stat {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   text-align: center;
-  margin: 0 40px;
-  font-weight: bold;
+  background-color: rgba(73, 73, 73, 0.4);
+  border-radius: 30px;
+  overflow: hidden;
+  width: fit-content;
 }
 
-.stat .num {
-  display: block;
-  font-size: 1.8rem;
-  font-weight: bold;
+.active-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 30px;
+  transition: transform 0.4s ease;
+  z-index: 0;
 }
 
-.stat .label {
-  color: #888;
-  font-size: 0.9rem;
-  font-weight: bold;
-  text-decoration: none;
-  display: inline-block;
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.stat .label:hover {
-  color: var(--red-color);
-  cursor: pointer;
-  transform: scale(1.1);
-}
-
-.info-section {
-  text-align: left;
-}
-
-.follow-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  margin-top: 10px;
-}
-
-.followers {
+.stat-item {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.followers .num {
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
-.followers .label {
-  text-decoration: none;
-  color: #9c9c9c;
-  font-size: 0.9rem;
-  font-weight: bold;
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.followers .label:hover {
-  color: var(--red-color);
+  padding: 15px 40px;
   cursor: pointer;
-  transform: scale(1.1);
+  transition: color 0.3s ease, transform 0.2s ease;
+  color: #ccc;
+}
+
+.stat-item.active {
+  color: #fff;
+}
+
+.stat-item:hover {
+  transform: scale(1.05);
+}
+
+.heading {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.label {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.stat .active-overlay {
+  transform: translateX(0%);
 }
 
 * {
@@ -232,18 +188,17 @@ body {
 .poster-section {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
   gap: 60px;
   margin: 50px auto;
-  padding: 0 60px;
+  padding: 0 40px;
 }
 
 .rectangle-row {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 35px;
-  width: 70%;
+  gap: 39px;
+  width: 100%;
   padding: 20px;
 }
 
@@ -266,35 +221,33 @@ body {
   z-index: 1;
 }
 
-.vertical-separator {
-  width: 2px;
-  background-color: #bbb;
-  height: 820px;
-  align-self: flex-start;
-  margin-top: 10px;
+#anchor-button {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  bottom: 25px;
+  right: 20px;
+  z-index: 99;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  background: var(--dark-color);
+  color: var(--white-color);
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  transition: opacity 0.5s ease, bottom 0.3s ease;
 }
 
-.info-section {
-  flex: 1;
-  padding-left: 20px;
+#anchor-button.show {
+  opacity: 1;
+  visibility: visible;
 }
 
-.info-section h2 {
-  margin-top: 0;
-  font-size: 1.5em;
-  color: #333;
-  text-align: center;
-}
-
-.info-section p {
-  font-size: 1em;
-  line-height: 1.5;
-}
-
-.info-section h2 {
-  margin-top: 0;
-  font-size: 1.5em;
-  color: #333;
+#anchor-button:hover {
+  background-color: #000;
+  bottom: 30px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -312,7 +265,7 @@ body {
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
   .header {
     flex-direction: column;
     align-items: flex-start;
