@@ -11,6 +11,9 @@
   --green-color: #99aa38;
   --blue-color: #99add6;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
@@ -234,12 +237,14 @@ body {
   align-items: flex-start;
   justify-content: space-between;
   gap: 60px;
-  margin: 50px auto;
+  margin: 40px auto;
   padding: 0 60px;
 }
 
 .rectangle-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  position: relative;
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: 35px;
@@ -252,6 +257,7 @@ body {
   height: 240px;
   background-color: #d3d3d3;
   border-radius: 12px;
+  aspect-ratio: 2/3;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   text-decoration: none;
@@ -267,9 +273,9 @@ body {
 }
 
 .vertical-separator {
-  width: 2px;
-  background-color: #bbb;
-  height: 820px;
+  width: 3px;
+  background-color: #3d3d3d;
+  height: 1000px;
   align-self: flex-start;
   margin-top: 10px;
 }
@@ -297,6 +303,35 @@ body {
   color: #333;
 }
 
+#anchor-button {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  bottom: 25px;
+  right: 20px;
+  z-index: 99;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  background: #111;
+  color: var(--white-color);
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  transition: opacity 0.5s ease, bottom 0.3s ease;
+}
+
+#anchor-button.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#anchor-button:hover {
+  background-color: #1b1b1b;
+  bottom: 30px;
+}
+
 @media screen and (max-width: 1024px) {
   .searchbar {
     --padding: 14px;
@@ -307,8 +342,19 @@ body {
     padding: var(--padding);
     border-radius: 28px;
     background: rgba(0, 0, 0, 0.4);
-    width: 300px;
+    width: 350px;
     height: 50px;
+  }
+
+  .rectangle-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    position: relative;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 35px;
+    width: 70%;
+    padding: 20px;
   }
 }
 
@@ -322,5 +368,16 @@ body {
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .rectangle-row {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    position: relative;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 35px;
+    width: 70%;
+    padding: 20px;
   }
 }

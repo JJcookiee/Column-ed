@@ -1,14 +1,4 @@
-const statItems = document.querySelectorAll(".stat-item");
-const overlay = document.querySelector(".active-overlay");
 const anchorButton = document.querySelector(".anchor-button");
-
-statItems.forEach((item, index) => {
-  item.addEventListener("click", () => {
-    statItems.forEach((i) => i.classList.remove("active"));
-    item.classList.add("active");
-    overlay.style.transform = `translateX(${index * 100}%)`;
-  });
-});
 
 let mybutton = document.getElementById("anchor-button");
 
