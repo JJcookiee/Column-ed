@@ -73,7 +73,7 @@ INSERT INTO reviews (title, post_date, descr, media_id, user_id) VALUES
     (SELECT user_id FROM users WHERE user_name = 'Jane Doe' LIMIT 1));
 
 
-INSERT INTO music (artist, producer, duration_time, media_id) VALUES
+INSERT INTO music (artist, producer, duration, media_id) VALUES
 ('Frank Lake', 'Frank Studios Ltd', '01:00:08',
     (SELECT media_id FROM media WHERE title = 'Blond' LIMIT 1)),
 ('Sam Hill', 'Hill Studios', '00:45:24',
