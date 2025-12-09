@@ -73,36 +73,6 @@ INSERT INTO reviews (title, post_date, descr, media_id, user_id) VALUES
     (SELECT user_id FROM users WHERE user_name = 'Jane Doe' LIMIT 1));
 
 
-INSERT INTO films (director, runtime, cast_id, media_id) VALUES
-('David Flincher', '02:05:00',
-    (SELECT cast_id FROM cast_member WHERE member_name = 'Bryan Mbeumo' LIMIT 1),
-    (SELECT media_id FROM media WHERE title = 'Si6' LIMIT 1)),
-('Christopher Molan', '2:18:00',
-    (SELECT cast_id FROM cast_member WHERE member_name = 'John Smith' LIMIT 1),
-    (SELECT media_id FROM media WHERE title = 'Nightfall' LIMIT 1)),
-('James Camera', '02:48:00',
-    (SELECT cast_id FROM cast_member WHERE member_name = 'Emma Clark' LIMIT 1),
-    (SELECT media_id FROM media WHERE title = 'Starlight Dreams' LIMIT 1)),
-('Quentin Tarantina', '03:21:42',
-    (SELECT cast_id FROM cast_member WHERE member_name = 'Liam Johnson' LIMIT 1),
-    (SELECT media_id FROM media WHERE title = 'Iron Fortress' LIMIT 1));
-
-
-INSERT INTO tv_shows (director, producer, episodes, seasons, cast_id, media_id) VALUES 
-('Greg Daniels', 'NBC', 188, 9,
-    (SELECT cast_id FROM cast_member WHERE member_name = 'Sophia Turner' LIMIT 1),
-    (SELECT media_id FROM media WHERE title = 'The Warehouse' LIMIT 1)),
-('Hiroshi Sato', 'Toei Animation', 26, 2,
-    (SELECT cast_id FROM cast_member WHERE member_name = 'Carlos Diaz' LIMIT 1),
-    (SELECT media_id FROM media WHERE title = 'Galaxy Rangers' LIMIT 1)),
-('Sarah Thompson', 'BBC Studios', 10, 1,
-    (SELECT cast_id FROM cast_member WHERE member_name = 'Mia Joyce' LIMIT 1),
-    (SELECT media_id FROM media WHERE title = 'Cold Case Unit' LIMIT 1)),
-('Harry Smith', 'Smith Productions', 46, 5,
-    (SELECT cast_id FROM cast_member WHERE member_name = 'Archie Leach' LIMIT 1),
-    (SELECT media_id FROM media WHERE title = 'Arthur' LIMIT 1));
-
-
 INSERT INTO music (artist, producer, duration_time, media_id) VALUES
 ('Frank Lake', 'Frank Studios Ltd', '01:00:08',
     (SELECT media_id FROM media WHERE title = 'Blond' LIMIT 1)),
@@ -147,6 +117,36 @@ INSERT INTO media_cast (cast_id, media_id) VALUES
     (SELECT cast_id FROM cast_member WHERE member_name = 'Archie Leach' LIMIT 1),
     (SELECT media_id FROM media WHERE title = 'Arthur' LIMIT 1)
 );
+
+
+INSERT INTO films (director, runtime, cast_id, media_id) VALUES
+('David Flincher', '02:05:00',
+    (SELECT cast_id FROM cast_member WHERE member_name = 'Bryan Mbeumo' LIMIT 1),
+    (SELECT media_id FROM media WHERE title = 'Si6' LIMIT 1)),
+('Christopher Molan', '2:18:00',
+    (SELECT cast_id FROM cast_member WHERE member_name = 'John Smith' LIMIT 1),
+    (SELECT media_id FROM media WHERE title = 'Nightfall' LIMIT 1)),
+('James Camera', '02:48:00',
+    (SELECT cast_id FROM cast_member WHERE member_name = 'Emma Clark' LIMIT 1),
+    (SELECT media_id FROM media WHERE title = 'Starlight Dreams' LIMIT 1)),
+('Quentin Tarantina', '03:21:42',
+    (SELECT cast_id FROM cast_member WHERE member_name = 'Liam Johnson' LIMIT 1),
+    (SELECT media_id FROM media WHERE title = 'Iron Fortress' LIMIT 1));
+
+
+INSERT INTO tv_shows (director, producer, episodes, seasons, cast_id, media_id) VALUES 
+('Greg Daniels', 'NBC', 188, 9,
+    (SELECT cast_id FROM cast_member WHERE member_name = 'Sophia Turner' LIMIT 1),
+    (SELECT media_id FROM media WHERE title = 'The Warehouse' LIMIT 1)),
+('Hiroshi Sato', 'Toei Animation', 26, 2,
+    (SELECT cast_id FROM cast_member WHERE member_name = 'Carlos Diaz' LIMIT 1),
+    (SELECT media_id FROM media WHERE title = 'Galaxy Rangers' LIMIT 1)),
+('Sarah Thompson', 'BBC Studios', 10, 1,
+    (SELECT cast_id FROM cast_member WHERE member_name = 'Mia Joyce' LIMIT 1),
+    (SELECT media_id FROM media WHERE title = 'Cold Case Unit' LIMIT 1)),
+('Harry Smith', 'Smith Productions', 46, 5,
+    (SELECT cast_id FROM cast_member WHERE member_name = 'Archie Leach' LIMIT 1),
+    (SELECT media_id FROM media WHERE title = 'Arthur' LIMIT 1));
 
 
 INSERT INTO comment (post_date, comment_text, user_id, review_id) VALUES
