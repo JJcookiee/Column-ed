@@ -11,6 +11,7 @@
   --green-color: #99aa38;
   --blue-color: #99add6;
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -128,7 +129,6 @@ body {
   display: flex;
   align-items: center;
   padding: 40px;
-  /* background: var(--blue-color); */
   background: linear-gradient(to bottom, #616d86, var(--blue-color));
   border-bottom: 1px solid #333;
 }
