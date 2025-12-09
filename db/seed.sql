@@ -33,7 +33,7 @@ INSERT INTO media (title, descr, media_type, release_date) VALUES
 ('Rock Revival', 'Modern rock album with classic influences', 1, '2018-04-30');
 
 
-INSERT INTO cast_member (cast_name) VALUES
+INSERT INTO cast_member (member_name) VALUES
 ('John Smith'),
 ('Emma Clark'),
 ('Liam Johnson'),
