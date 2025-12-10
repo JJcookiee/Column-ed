@@ -16,35 +16,19 @@ INSERT INTO media (title, descr, media_type, release_date) VALUES
 
 INSERT INTO books (author, publisher, pages, chapters, media_id) VALUES
 (
-<<<<<<< HEAD
     'me',
     'also me',
     1,
     1,
     (SELECT media_id FROM media WHERE title = 'test book' LIMIT 1)
-=======
-  'me',
-  'also me',
-  1,
-  1,
-  (SELECT media_id FROM media WHERE title = 'test book' LIMIT 1)
->>>>>>> a6aaee1346cb034a9235dbd699c943350118a146
 );
 
 
 INSERT INTO reviews (title, post_date, descr, media_id, user_id) VALUES
 (
-<<<<<<< HEAD
     'My review',
     '2025-12-02',
     'terrible',
     (SELECT media_id FROM media WHERE title = 'test book' LIMIT 1),
     (SELECT user_id FROM users WHERE user_name = 'john doe' LIMIT 1)
-=======
-  'My review',
-  '2025-12-02',
-  'terrible',
-  (SELECT media_id FROM media WHERE title = 'test book' LIMIT 1),
-  (SELECT user_id  FROM users WHERE user_name = 'john doe' LIMIT 1)
->>>>>>> a6aaee1346cb034a9235dbd699c943350118a146
 );
