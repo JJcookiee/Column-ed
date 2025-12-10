@@ -559,7 +559,6 @@ input {
 }
 
 .textarea:focus {
-  border: 2px solid #616d86;
   background-color: white;
 }
 
@@ -592,21 +591,52 @@ input {
 
 .rating {
   position: absolute;
-  top: 75%;
+  top: 75.5%;
   left: 75%;
   transform: translate(-50%, -50%);
   display: flex;
+  flex-direction: row-reverse;
+}
+
+.rating input {
+  display: none;
 }
 
 .rating label {
   display: block;
   cursor: pointer;
-  width: 50px;
+  width: 40px;
   padding-left: 10px;
 }
 
 .rating label::before {
-  
+  content: '\f005' ;
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  position: relative;
+  display: block;
+  font-size: 2rem;
+  color: #272424;
+}
+
+.rating label::after {
+  content: '\f005' ;
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-size: 2rem;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  display: block;
+  color: #1f9cff;
+  transition: 0.5s;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.rating label:hover::after,
+.rating label:hover ~ label::after,
+.rating input:checked ~ label::after {
+  opacity: 1;
 }
 
 @media screen and (max-width: 1024px) {

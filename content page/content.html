@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/x-icon" href="/Profile page/Column-ed.png"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://kit.fontawesome.com/d60b0a7baa.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header class="header">
@@ -97,7 +98,7 @@
       <!-- ✅ CHECKBOXES SECTION -->
       <div class="checkboxes">
         <div class="watchedBox">
-          <input type="checkbox" id="watched" name="watched" checked />
+          <input type="checkbox" id="watched" name="watched" unchecked />
           <label for="watched">Watched on</label>
 
           <div class="date-container">
@@ -148,7 +149,7 @@
         </div>
 
          <div class="beforeBox">
-          <input type="checkbox" id="watchedBefore" name="watchedBefore" checked />
+          <input type="checkbox" id="watchedBefore" name="watchedBefore" unchecked />
           <label for="watchedBefore">Rewatch</label>
         </div>
       </div>
@@ -157,12 +158,12 @@
 
       <div class="controls">
         <button class="submitButton">Submit</button>
-        <div class="rating">
-        <input type="radio" class="star1"><label for="star1"></label>
-        <input type="radio" class="star2"><label for="star2"></label>
-        <input type="radio" class="star3"><label for="star3"></label>
-        <input type="radio" class="star4"><label for="star4"></label>
-        <input type="radio" class="star5"><label for="star5"></label>
+        <div class="rating" id="rating">
+        <input type="radio" id="star1" value="1"><label for="star1"></label>
+        <input type="radio" id="star2" value="2"><label for="star2"></label>
+        <input type="radio" id="star3" value="3"><label for="star3"></label>
+        <input type="radio" id="star4" value="4"><label for="star4"></label>
+        <input type="radio" id="star5" value="5"><label for="star5"></label>
       </div>
       </div>
     </div>

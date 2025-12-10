@@ -52,8 +52,8 @@ function topFunction() {
 
 const datepicker = document.querySelector(".datepicker");
 const dateInput = document.querySelector(".date-input");
-const yearInput = datepicker.querySelector(".date-input");
-const monthInput = datepicker.querySelector(".date-input");
+const yearInput = datepicker.querySelector(".year-input");
+const monthInput = datepicker.querySelector(".month-input");
 const cancelBtn = datepicker.querySelector(".cancel");
 const applyBtn = datepicker.querySelector(".apply");
 const nextBtn = datepicker.querySelector(".next");
@@ -82,7 +82,6 @@ applyBtn.addEventListener("click", () => {
   datepicker.hidden = true;
 });
 
-document.addEventListener("DOMContentLoaded", () => {
   nextBtn.addEventListener("click", () => {
     if (month === 11) year++;
     month = (month + 1) % 12;
@@ -109,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
     monthInput.selectedIndex = month;
     yearInput.number = year;
   };
-});
+
 const handleDateClick = (e) => {
   const button = e.target;
 
@@ -174,3 +173,15 @@ const createButton = (text, isDisabled = false) => {
 };
 
 displayDates();
+
+
+// document.querySelectorAll('.rating input').forEach(radio => {
+//   radio.addEventListener('click', function(e) {
+//     if (this.wasChecked) {
+//       this.checked = false;
+//     }
+//     document.querySelectorAll('.rating input').forEach(r => r.wasChecked = false);
+//     this.wasChecked = this.checked;
+//   });
+// });
+
