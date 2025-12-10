@@ -199,10 +199,10 @@ body {
 
 .rectangle-row {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  position: relative;
+  grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+  /* position: relative;
   justify-content: flex-start;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
   gap: 39px;
   width: 100%;
   padding: 20px;
@@ -266,6 +266,19 @@ body {
   bottom: 30px;
 }
 
+@media screen and (max-width: 1500px) {
+  .rectangle-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+    /* position: relative;
+    justify-content: flex-start;
+    flex-wrap: wrap; */
+    gap: 35px;
+    width: 100%;
+    padding: 20px;
+  } 
+}
+
 @media screen and (max-width: 1024px) {
   .searchbar {
     --padding: 14px;
@@ -282,7 +295,7 @@ body {
 
   .rectangle-row {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
     position: relative;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -332,9 +345,9 @@ body {
   }
 
   .rectangle-row {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
     gap: 35px;
-    width: 70%;
+    width: 100%;
     padding: 20px;
   }
 }

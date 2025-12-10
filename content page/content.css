@@ -161,7 +161,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 60px; /* spacing between Watched and Rewatch sections */
+  gap: 60px;
   flex-wrap: nowrap;
   margin-top: 10px;
 }
@@ -186,8 +186,6 @@ input {
 }
 
 .date-container {
-  display: inline-flex;
-  align-items: center;
   position: relative;
 }
 
@@ -219,14 +217,14 @@ input {
 
 .datepicker {
   position: absolute;
-  top: 110%; /* slightly below the input */
+  top: 110%;
   left: 0;
   z-index: 100;
   background: #fff;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-  display: none; /* hidden by default until JS opens it */
+  display: none;
 }
 
 .days,
@@ -444,8 +442,8 @@ input {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1.15);
-  width: 62%;
-  max-height: 70%;
+  width:70%;
+  height: 40%;
   background: #707070;
   padding: 25px;
   border-radius: 10px;
@@ -553,11 +551,11 @@ input {
   resize: none;
   width: 100%;
   height: 180px;
-  margin-top: 20px; /* spacing below checkboxes */
+  margin-top: 20px;
   border: none;
   color: #000;
   overflow: auto;
-  display: block; /* ensures it spans the full line */
+  display: block;
 }
 
 .textarea:focus {
@@ -592,6 +590,25 @@ input {
   transform: scale(1.05);
 }
 
+.rating {
+  position: absolute;
+  top: 75%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  display: flex;
+}
+
+.rating label {
+  display: block;
+  cursor: pointer;
+  width: 50px;
+  padding-left: 10px;
+}
+
+.rating label::before {
+  
+}
+
 @media screen and (max-width: 1024px) {
   .searchbar {
     --padding: 14px;
@@ -608,7 +625,7 @@ input {
 
   .rectangle-row {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     position: relative;
     justify-content: flex-start;
     flex-wrap: wrap;
