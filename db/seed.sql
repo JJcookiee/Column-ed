@@ -243,4 +243,3 @@ INSERT INTO diary (diary_date, user_id, media_id) VALUES
     (SELECT user_id FROM users WHERE user_name = 'barack obama' LIMIT 1),
     (SELECT media_id FROM media WHERE title = 'Golden Hour' LIMIT 1)
 );
-
