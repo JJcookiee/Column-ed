@@ -21,7 +21,7 @@
         <a href="/index.html" class="material-symbols-outlined home-icon" aria-hidden="true" alt="Home">home</a>
         <a id="active" href="/Profile page/Profile.html" class="material-symbols-outlined profile-icon">account_circle</a>
         <a href="#notifications" class="material-symbols-outlined noti-icon">notifications</a>
-        <a href="/Watch and Watched list/Watchlist.html" class="material-symbols-outlined tv-icon">live_tv</a>
+        <a href="/Watchlist and favoutrites/Watchlist.html" class="material-symbols-outlined tv-icon">live_tv</a>
       </div>
     </header>
 
@@ -30,9 +30,9 @@
         <img src="/Profile page/scorsese.png" alt="Avatar" />
       </div>
       <div class="profile-info">
-        <h1>FilmLover123</h1>
-        <p class="username">@ILoveFilms</p>
-        <p class="bio">Barry Lyndon is boring.</p>
+        <h1>Martin</h1>
+        <p class="username">@absolutecinema</p>
+        <p class="bio">my eyebrows are like carpets.</p>
       </div>
     </section>
 
@@ -57,7 +57,7 @@
       <script>
         const container = document.getElementById("rectangles");
 
-        for (let i = 1; i <= 12; i++) {
+        for (let i = 1; i <= 18; i++) {
           const a = document.createElement("a");
           a.href = `#item${i}`;
           a.className = "rectangle";
@@ -82,6 +82,16 @@
       </div>
     </div>
 
+    <button onclick="topFunction() "class="anchor-button" id="anchor-button">
+    <i data-lucide="arrow-up"></i>
+    </button>
+
     </section>
+
+    <script src="Profile.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+    lucide.createIcons();
+    </script>
   </body>
 </html>
