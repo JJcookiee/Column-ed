@@ -1,7 +1,7 @@
 const apiKey = "4b3cf5d163b21a803a304391cab5a629"
 
-const apiTrending = `https://api.themoviedb.org/3/trending/tv/day?api_key=${apiKey}`;
-const moviesContainer = document.getElementById("movies"); // CONTAINER CLASS
+const apiTrending = `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}`;
+const moviesContainer = document.getElementById("rectangles"); // CONTAINER CLASS
 
 async function fetchMovies(){
     try {
@@ -18,14 +18,22 @@ async function fetchMovies(){
 }
 
 function createMovieCard(media) {
-    const { title, name, backdrop_path } = media;
+    const { title, name, poster_path } = media;
 
     const movieCard = document.createElement("div");
-    movieCard.classList.add("movie_item")
+    movieCard.classList.add("rectangle")
 
     movieCard.innerHTML = `
-        <img src="https://image.tmdb.org/t/p/w500/${backdrop_path}" class="movie_img_rounded">
-        <div class = "title">${title || name}</div>
+
+        <div class="rectangle-row" id="rectangles">
+            <img src="https://image.tmdb.org/t/p/w500/${poster_path}" class="movie_img_rounded">
+
+        </div>
+        
+            
+        
+        
+        
     `;
     return movieCard;  
 }

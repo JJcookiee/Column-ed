@@ -249,7 +249,7 @@ body {
   flex-wrap: wrap;
   gap: 35px;
   width: 70%;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 .rectangle {
@@ -261,7 +261,7 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   text-decoration: none;
-  border: 5px solid transparent;
+  border: 6px solid transparent;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.2s ease;
 }
 
@@ -270,6 +270,16 @@ body {
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
   border-color: #b22222;
   z-index: 1;
+  border-radius: 12px;
+}
+
+.movie_img_rounded {
+  justify-self: center;
+  
+  border-radius: 12px;
+  width: 148px;
+  aspect-ratio: 2/3;
+  
 }
 
 .vertical-separator {
