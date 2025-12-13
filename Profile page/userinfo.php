@@ -1,5 +1,7 @@
 <?php
-$usersql = "SELECT user_id, user_name, bio, display_name, pfp FROM users where user_id = 2"; //change later
+session_start();
+
+$usersql = "SELECT user_id, user_name, bio, display_name, pfp FROM users where user_id = " . intval($_SESSION['user_id']);
 $result = $conn->query($usersql);
 
 if ($result->num_rows > 0) {
@@ -12,6 +14,8 @@ if ($result->num_rows > 0) {
   }
 } else {
   echo '<script>console.log("No profile found"); </script>';
+  header("Location: index.html");
+  exit();
 }
 
 $dsql = "SELECT COUNT(*) AS total FROM diary WHERE user_id = $id";
