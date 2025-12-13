@@ -16,9 +16,21 @@ if ($result->num_rows > 0) {
 
 $dsql = "SELECT COUNT(*) AS total FROM diary WHERE user_id = $id";
 $dresult = $conn->query($dsql);
+if (!is_string($dresult)) {
+  echo '<script>console.log("Error: " . $conn->error); </script>';
+  $dresult = "0";
+}
 $revsql = "SELECT COUNT(*) AS total FROM reviews WHERE user_id = $id";
 $revresult = $conn->query($revsql);
-$favesql = "SELECT COUNT(*) AS total FROM favourites WHERE user_id = $id";
-$faveresult = $conn->query($favesql);
+if (!is_string($revresult)) {
+  echo '<script>console.log("Error: " . $conn->error); </script>';
+  $revresult = "0";
+}
+$favsql = "SELECT COUNT(*) AS total FROM favourites WHERE user_id = $id";
+$favresult = $conn->query($favsql);
+if (!is_string($favresult)) {
+  echo '<script>console.log("Error: " . $conn->error); </script>';
+  $favresult = "0";
+}
 $conn->close();
 ?>
