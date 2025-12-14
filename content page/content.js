@@ -185,3 +185,50 @@ displayDates();
 //   });
 // });
 
+
+// api stuff
+
+const apiKey = "4b3cf5d163b21a803a304391cab5a629";
+const IMG_PATH = "https://image.tmdb.org/t/p/w500";
+
+const params = new URLSearchParams(window.location.search);
+const movieId = params.get("id");
+
+if (!movieId) {
+  console.error("No movie ID found");
+}
+
+async function fetchMovieDetails() {
+  try {
+    const res = await fetch(
+      `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&append_to_response=credits`
+    );
+    const movie = await res.json();
+
+    displayMovie(movie);
+  } catch (error) {
+    console.error("Error fetching movie:", error);
+  }
+}
+
+function displayMovie(movie) {
+  document.getElementById("film-title").textContent = movie.title;
+  document.getElementById("film-year").textContent =
+    `(${movie.release_date.split("-")[0]})`;
+
+  const director = movie.credits.crew.find(
+    person => person.job === "Director"
+  );
+  document.getElementById("film-director").textContent =
+    director ? director.name : "Unknown";
+
+  const posterContainer = document.getElementById("rectangles");
+  posterContainer.innerHTML = `
+    <img src="${IMG_PATH + movie.poster_path}" class="movie_img_rounded"
+    >
+  `;
+}
+
+fetchMovieDetails();
+
+

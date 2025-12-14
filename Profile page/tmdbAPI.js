@@ -18,22 +18,19 @@ async function fetchMovies(){
 }
 
 function createMovieCard(media) {
-    const { title, name, poster_path } = media;
+    const { id, poster_path } = media;
 
     const movieCard = document.createElement("div");
-    movieCard.classList.add("rectangle")
+    movieCard.classList.add("rectangle");
 
     movieCard.innerHTML = `
-
-        <div class="rectangle-row" id="rectangles">
-            <img src="https://image.tmdb.org/t/p/w500/${poster_path}" class="movie_img_rounded">
-
-        </div>
-        
-            
-        
-        
-        
+        <a href="/content page/content.html?id=${id}">
+            <img 
+              src="https://image.tmdb.org/t/p/w500/${poster_path}" 
+              class="movie_img_rounded"
+              alt="Movie poster"
+            >
+        </a>
     `;
     return movieCard;  
 }
