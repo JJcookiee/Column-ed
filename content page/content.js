@@ -225,11 +225,14 @@ stars.forEach((star) => {
 
 // api stuff
 
+
+
 const apiKey = "4b3cf5d163b21a803a304391cab5a629";
 const IMG_PATH = "https://image.tmdb.org/t/p/w500";
 
 const params = new URLSearchParams(window.location.search);
 const movieId = params.get("id");
+const type = params.get("type") || "movie";
 
 if (!movieId) {
   console.error("No movie ID found");
@@ -238,7 +241,7 @@ if (!movieId) {
 async function fetchMovieDetails() {
   try {
     const res = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&append_to_response=credits`
+      `https://api.themoviedb.org/3/${type}/${movieId}?api_key=${apiKey}&append_to_response=credits`
     );
     const movie = await res.json();
 
@@ -248,30 +251,73 @@ async function fetchMovieDetails() {
   }
 }
 
-function displayMovie(movie) {
-  document.getElementById("film-title").textContent = movie.title;
-  document.getElementById("film-year").textContent = `(${
-    movie.release_date.split("-")[0]
-  })`;
+function displayMovie(data) {
+  // TITLE
+  const title = data.title || data.name;
+  document.getElementById("film-title").textContent = title;
+  document.getElementById("popup-film-title").textContent = title;
 
-  const director = movie.credits.crew.find(
-    (person) => person.job === "Director"
-  );
-  document.getElementById("film-director").textContent = director
-    ? director.name
-    : "Unknown";
+  // YEAR
+  const date = data.release_date || data.first_air_date;
+  document.getElementById("film-year").textContent = date
+    ? `(${date.split("-")[0]})`
+    : "";
+  document.getElementById("popup-film-year").textContent = date
+    ? `(${date.split("-")[0]})`
+    : "";
 
-  const posterContainer = document.getElementById("rectangles");
-  posterContainer.innerHTML = `
-    <img src="${IMG_PATH + movie.poster_path}" class="movie_img_rounded"
-    >
+  // DIRECTOR / CREATOR
+  let creator = "Unknown";
+
+  if (type === "movie") {
+    const director = data.credits.crew.find(
+      person => person.job === "Director"
+    );
+    creator = director ? director.name : "Unknown";
+  } else {
+    creator = data.created_by?.[0]?.name || "Unknown";
+  }
+
+  document.getElementById("film-director").textContent = creator;
+
+  // TAGLINE
+  document.getElementById("film-tagline").textContent =
+    data.tagline || "No tagline available.";
+
+  // GENRES
+  document.getElementById("film-genre").textContent =
+    data.genres.map(g => g.name).join(", ");
+
+  // RUNTIME
+  let runtimeText = "N/A";
+  if (type === "movie" && data.runtime) {
+    const h = Math.floor(data.runtime / 60);
+    const m = data.runtime % 60;
+    runtimeText = `${h}h ${m}m`;
+  } else if (type === "tv" && data.episode_run_time?.length) {
+    runtimeText = `${data.episode_run_time[0]}m per episode`;
+  }
+
+  document.getElementById("film-runtime").textContent = runtimeText;
+
+  // CAST
+  document.getElementById("film-cast").textContent =
+    data.credits.cast
+      .slice(0, 5)
+      .map(p => p.name)
+      .join(", ");
+
+  // POSTER
+  document.getElementById("rectangles").innerHTML = `
+    <img src="${IMG_PATH + data.poster_path}" class="movie_img_rounded">
   `;
 
-  const reviewPosterContainer = document.getElementById("review-rectangle");
-  reviewPosterContainer.innerHTML = `
-    <img src="${IMG_PATH + movie.poster_path}" class="review_movie_img_rounded"
-    >
+  // REVIEW POPUP POSTER
+  document.getElementById("review-rectangle").innerHTML = `
+    <img src="${IMG_PATH + data.poster_path}" class="review_movie_img_rounded">
   `;
 }
+
+
 
 fetchMovieDetails();
