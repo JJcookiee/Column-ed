@@ -280,6 +280,10 @@ function displayMovie(data) {
 
   document.getElementById("film-director").textContent = creator;
 
+  // DESCRIPTION
+  const overview = data.overview;
+  document.getElementById("description").textContent = overview;
+
   // TAGLINE
   document.getElementById("film-tagline").textContent =
     data.tagline || "No tagline available.";
