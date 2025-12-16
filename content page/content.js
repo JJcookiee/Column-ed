@@ -175,7 +175,6 @@ function topFunction() {
 // displayDates();
 
 const stars = document.querySelectorAll(".rating input");
-// const ratingContainer = document.querySelector(".rating");
 let currentRating = 0;
 
 function updateStars(rating) {

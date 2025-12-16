@@ -31,19 +31,6 @@
     </header>
 
     <section class="layout">
-    <div class="film-info">
-        <div class="title-year">
-            <h1 id="film-title">(Film)</h1>
-            <span id="film-year">(Year)</span>
-        </div>
-        <div class="film-director">
-            <span>Directed by <span id="film-director">(Director)</span></span>
-        </div>
-    </div>
-    </section>
-
-
-        <section class="poster-section">
       <div class="rectangle-row" id="rectangles"></div>
 
       <script>
@@ -56,6 +43,32 @@
           container.appendChild(a);
         }
       </script>
+      
+    <div class="film-info">
+        <div class="title-year">
+            <h1 id="film-title">(Film)</h1>
+            <span id="film-year">(Year)</span>
+        </div>
+        <div class="film-director">
+            <span>Directed by <span id="film-director">(Director)</span></span>
+        </div>
+    </div>
+  </section>
+
+
+        <!-- <section class="poster-section">
+      <div class="rectangle-row" id="rectangles"></div>
+
+      <script>
+        const container = document.getElementById("rectangles");
+
+        for (let i = 1; i <= 1; i++) {
+          const a = document.createElement("a");
+          a.href = `#item${i}`;
+          a.className = "rectangle";
+          container.appendChild(a);
+        }
+      </script> -->
 
       <div class="description">
         <div class="details">
