@@ -31,19 +31,7 @@
       </div>
     </header>
 
-    <section class="layout">
-      
-    <div class="film-info">
-        <div class="title-year">
-            <h1 id="film-title">(Film)</h1>
-            <span id="film-year">(Year)</span>
-        </div>
-        <div class="film-director">
-            <span>Directed by <span id="film-director">(Director)</span></span>
-        </div>
-    </div>
-  </section>
-
+  <section class="poster-section">
   <div class="rectangle-row" id="rectangles"></div>
 
       <script>
@@ -57,48 +45,33 @@
         }
       </script>
 
-
-        <!-- <section class="poster-section">
-      <div class="rectangle-row" id="rectangles"></div>
-
-      <script>
-        const container = document.getElementById("rectangles");
-
-        for (let i = 1; i <= 1; i++) {
-          const a = document.createElement("a");
-          a.href = `#item${i}`;
-          a.className = "rectangle";
-          container.appendChild(a);
-        }
-      </script> -->
-
+      <div class="film-info">
+        <div class="title-year">
+            <h1 id="film-title">(Film)</h1>
+            <span id="film-year">(Year)</span>
+        </div>
+        <div class="film-director">
+            <span>Directed by <span id="film-director">(Director)</span></span>
+        </div>
       <div class="description">
         <div class="details">
             <div class="details-container">
                 <p id="film-tagline">(Tagline)</p>
-                <p><strong>Genre:</strong> <span id="film-genre">(Genre)</span></p>
-                <p><strong>Runtime:</strong> <span id="film-runtime">(Runtime)</span></p>
+                <p><span id="description">(Overview)</span></p>
+                <p id="film-time-genre"><span id="film-runtime">(Runtime)</span>
+                  <span id="film-genre">(Genre)</span></p>
                 <p><strong>Cast:</strong> <span id="film-cast">(Cast)</span></p>
-                <p><strong></strong> <span id="description">(Overview)</span></p>
             </div>
         </div>
       </div>
-        
+      </div>
+    </section>  
+    
         <div class="buttonsContainer">
             <div class="review">
                 <button id="openPopup">Review</button>
             </div>
-            <!-- <div class="b2">
-                <button>Button</button>
-            </div>
-            <div class="b3">
-                <button>Button</button>
-            </div>
-            <div class="b4">
-                <button>Button</button>
-            </div>
-        </div> -->
-    </div>
+        </div>
     </section>
     
 
