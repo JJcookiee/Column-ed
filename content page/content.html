@@ -56,12 +56,23 @@
           container.appendChild(a);
         }
       </script>
+
+      <div class="description">
+        <div class="details">
+            <div class="details-container">
+                <h2>Tagline</h2>
+                <p><strong>Genre:</strong> <span id="film-genre">(Genre)</span></p>
+                <p><strong>Runtime:</strong> <span id="film-runtime">(Runtime)</span></p>
+                <p><strong>Cast:</strong> <span id="film-cast">(Cast)</span></p>
+            </div>
+        </div>
+      </div>
         
         <div class="buttonsContainer">
-            <div class="center">
+            <div class="review">
                 <button id="openPopup">Review</button>
             </div>
-            <div class="b2">
+            <!-- <div class="b2">
                 <button>Button</button>
             </div>
             <div class="b3">
@@ -70,7 +81,7 @@
             <div class="b4">
                 <button>Button</button>
             </div>
-        </div>
+        </div> -->
     </div>
     </section>
     
@@ -84,7 +95,7 @@
     <button class="popup-close" id="popup-close">&times;</button>
 
     <div class="review-left">
-      <button class="review-rectangle" id="review-rectangle"></button>
+      <div class="review-rectangle" id="review-rectangle"></div>
     </div>
 
     <div class="review-right">
@@ -159,14 +170,14 @@
       <textarea class="textarea" placeholder="Type your review..."></textarea>
 
       <div class="controls">
-        <button class="submitButton">Submit</button>
         <div class="rating" id="rating">
         <input type="radio" id="star1" value="1"><label for="star1"></label>
         <input type="radio" id="star2" value="2"><label for="star2"></label>
         <input type="radio" id="star3" value="3"><label for="star3"></label>
         <input type="radio" id="star4" value="4"><label for="star4"></label>
         <input type="radio" id="star5" value="5"><label for="star5"></label>
-      </div>
+        </div>
+        <button class="submitButton">Submit</button>
       </div>
     </div>
   </div>
