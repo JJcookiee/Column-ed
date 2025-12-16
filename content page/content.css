@@ -124,7 +124,7 @@ body {
 }
 
 .layout {
-  width: 100%;
+  width: 73%;
   padding: 1%;
   margin-left: auto;
   margin-right: 0;
@@ -136,7 +136,7 @@ body {
 
 .title-year {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: baseline;
   gap: 10px;
 }
@@ -162,7 +162,7 @@ body {
   margin-top: 5px;
   font-size: 20px;
   color: #b0b0b0;
-  justify-content: center;
+  justify-content: left;
 }
 
 .poster-section {
