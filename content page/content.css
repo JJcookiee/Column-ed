@@ -691,3 +691,68 @@ input {
     margin-bottom: 10px;
   }
 }
+
+.footer{
+  background-color: #616d86;
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  text-decoration: none;
+  height: auto;
+}
+
+.footer-columns{
+  columns: 2;
+  margin: 0px 25px;
+  text-decoration: none;
+}
+
+.footer-rows{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 25px 0px;
+  text-decoration: none;
+  align-content: center;
+}
+
+.footer-links{
+  gap: 35px;
+}
+
+.footer-link{
+  text-decoration: none;
+  color: black;
+  margin: 0 10px 8px 10px;
+  font-style: bold;
+}
+
+.footer-link:hover{
+  color: var(--red-color);
+}
+
+.footer-copy{
+  color: black;
+}
+
+.footer-socials{
+  margin: 10px;
+  display: flex;
+  justify-content: space-around;
+  padding: 0px 100px;
+}
+
+.footer-social{
+  text-decoration: none;
+  color: black;
+  margin: 0 10px;
+  font-size: 24px;
+}
+
+.footer-social:hover{
+  color: var(--green-color);
+}
+
+
