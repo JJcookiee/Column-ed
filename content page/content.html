@@ -32,6 +32,7 @@
     </header>
 
     <section class="layout">
+      
     <div class="film-info">
         <div class="title-year">
             <h1 id="film-title">(Film)</h1>
@@ -41,11 +42,9 @@
             <span>Directed by <span id="film-director">(Director)</span></span>
         </div>
     </div>
-    </section>
+  </section>
 
-
-        <section class="poster-section">
-      <div class="rectangle-row" id="rectangles"></div>
+  <div class="rectangle-row" id="rectangles"></div>
 
       <script>
         const container = document.getElementById("rectangles");
@@ -57,12 +56,39 @@
           container.appendChild(a);
         }
       </script>
+
+
+        <!-- <section class="poster-section">
+      <div class="rectangle-row" id="rectangles"></div>
+
+      <script>
+        const container = document.getElementById("rectangles");
+
+        for (let i = 1; i <= 1; i++) {
+          const a = document.createElement("a");
+          a.href = `#item${i}`;
+          a.className = "rectangle";
+          container.appendChild(a);
+        }
+      </script> -->
+
+      <div class="description">
+        <div class="details">
+            <div class="details-container">
+                <p id="film-tagline">(Tagline)</p>
+                <p><strong>Genre:</strong> <span id="film-genre">(Genre)</span></p>
+                <p><strong>Runtime:</strong> <span id="film-runtime">(Runtime)</span></p>
+                <p><strong>Cast:</strong> <span id="film-cast">(Cast)</span></p>
+                <p><strong></strong> <span id="description">(Overview)</span></p>
+            </div>
+        </div>
+      </div>
         
         <div class="buttonsContainer">
-            <div class="center">
+            <div class="review">
                 <button id="openPopup">Review</button>
             </div>
-            <div class="b2">
+            <!-- <div class="b2">
                 <button>Button</button>
             </div>
             <div class="b3">
@@ -71,7 +97,7 @@
             <div class="b4">
                 <button>Button</button>
             </div>
-        </div>
+        </div> -->
     </div>
     </section>
     
@@ -85,15 +111,15 @@
     <button class="popup-close" id="popup-close">&times;</button>
 
     <div class="review-left">
-      <button class="review-rectangle" id="review-rectangle"></button>
+      <div class="review-rectangle" id="review-rectangle"></div>
     </div>
 
     <div class="review-right">
       <h2 class="review-heading">Review</h2>
 
       <div class="film-info">
-        <h3 class="film-title">Film Title</h3>
-        <p class="film-year">(2025)</p>
+        <h3 id="popup-film-title">Film Title</h3>
+        <p id="popup-film-year">(Year)</p>
       </div>
 
       <!-- ✅ CHECKBOXES SECTION -->
@@ -160,14 +186,14 @@
       <textarea class="textarea" placeholder="Type your review..."></textarea>
 
       <div class="controls">
-        <button class="submitButton">Submit</button>
         <div class="rating" id="rating">
         <input type="radio" id="star1" value="1"><label for="star1"></label>
         <input type="radio" id="star2" value="2"><label for="star2"></label>
         <input type="radio" id="star3" value="3"><label for="star3"></label>
         <input type="radio" id="star4" value="4"><label for="star4"></label>
         <input type="radio" id="star5" value="5"><label for="star5"></label>
-      </div>
+        </div>
+        <button class="submitButton">Submit</button>
       </div>
     </div>
   </div>
@@ -176,7 +202,6 @@
 
 
     <script src="content.js"></script>
-    <script src="api.js"></script>
     <!-- <script src="Profile.js"></script> -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
