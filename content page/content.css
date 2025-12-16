@@ -136,7 +136,7 @@ body {
 
 .title-year {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: baseline;
   gap: 10px;
 }
@@ -157,13 +157,12 @@ body {
   margin-bottom: 12px;
 }
 
-
 .film-director {
   display: flex;
   margin-top: 5px;
   font-size: 20px;
   color: #b0b0b0;
-  justify-content: center;
+  justify-content: left;
 }
 
 .poster-section {
@@ -184,7 +183,7 @@ body {
 
 .movie_img_rounded {
   width: 100%;
-  max-width: 380px;
+  max-width: 320px;
   aspect-ratio: 2/3;
   background-color: #d3d3d3;
   border-radius: 12px;
@@ -348,13 +347,13 @@ body {
   margin-bottom: 15px;
 }
 
-.film-title {
+#popup-film-title {
   color: #fff;
   margin: 0;
   font-size: 1.2rem;
 }
 
-.film-year {
+#popup-film-year {
   color: #b0b0b0;
   margin: 0;
   font-size: 1rem;
