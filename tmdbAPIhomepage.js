@@ -63,3 +63,4 @@ tvBtn.addEventListener("click", () => {
 
 // Initial load
 fetchTrending("movie");
+

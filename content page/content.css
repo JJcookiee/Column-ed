@@ -150,6 +150,13 @@ body {
   color: #b0b0b0;
 }
 
+#film-tagline {
+  font-style: italic;
+  opacity: 0.85;
+  margin-bottom: 12px;
+}
+
+
 .film-director {
   display: flex;
   margin-top: 5px;

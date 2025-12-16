@@ -46,21 +46,12 @@
         <section class="poster-section">
       <div class="rectangle-row" id="rectangles"></div>
 
-      <script>
-        const container = document.getElementById("rectangles");
-
-        for (let i = 1; i <= 1; i++) {
-          const a = document.createElement("a");
-          a.href = `#item${i}`;
-          a.className = "rectangle";
-          container.appendChild(a);
-        }
-      </script>
+      
 
       <div class="description">
         <div class="details">
             <div class="details-container">
-                <h2>Tagline</h2>
+                <p id="film-tagline">(Tagline)</p>
                 <p><strong>Genre:</strong> <span id="film-genre">(Genre)</span></p>
                 <p><strong>Runtime:</strong> <span id="film-runtime">(Runtime)</span></p>
                 <p><strong>Cast:</strong> <span id="film-cast">(Cast)</span></p>
@@ -102,8 +93,8 @@
       <h2 class="review-heading">Review</h2>
 
       <div class="film-info">
-        <h3 class="film-title">Film Title</h3>
-        <p class="film-year">(2025)</p>
+        <h3 id="popup-film-title">Film Title</h3>
+        <p id="popup-film-year">(Year)</p>
       </div>
 
       <!-- ✅ CHECKBOXES SECTION -->
@@ -186,7 +177,6 @@
 
 
     <script src="content.js"></script>
-    <script src="api.js"></script>
     <!-- <script src="Profile.js"></script> -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
