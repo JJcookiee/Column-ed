@@ -175,7 +175,7 @@ body {
 
 .rectangle-row {
   display: flex;
-  justify-content: flex-start;
+  justify-content: end;
   gap: 35px;
   width: 35%;
   padding: 0px 40px 40px;
@@ -669,4 +669,14 @@ input {
   .film-info {
     margin-bottom: 10px;
   }
+}
+
+
+.description{
+  position: absolute;
+  top: 44%;
+  left: 47%;
+  transform: translate(-50%, -50%);
+  width: 26%;
+  height: 50%;
 }
