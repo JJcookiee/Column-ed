@@ -23,5 +23,5 @@ sql instructions for local use
 10) create file config.php with host, username, password, name variables. make sure config.php is in the gitignore
 11) when connecting in php use sample code in 'host.php'
 sql local host notes:
-- xampp doesn't seem to use the css or external files(like the pfp png's) but you can still test the php.Use the live server extension to see css changes
-- When files are uploaded to the free host website the config.php files will be changed, this will be done by jacob and will have no affect on your work
+- xampp doesn't seem to use the css or external files(like the pfp png's) but you can still test the php. Use the live server extension to see css changes
+- When files are uploaded to the free host website the config.php file will be changed, this will be done by jacob and will have no affect on your work
