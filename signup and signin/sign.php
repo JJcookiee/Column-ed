@@ -33,9 +33,9 @@
         <?php
         $sign = htmlspecialchars($_GET["sign"] ?? "in");
         if ($sign === "up") {
-            include 'signup.html';
+            include 'signup.php';
         } else {
-            include 'signin.html';
+            include 'signin.php';
         }
         ?>     
         <button onclick="topFunction() "class="anchor-button" id="anchor-button">
