@@ -88,7 +88,7 @@ body {
 }
 
 .searchbar {
-  /* --padding: 14px;
+  --padding: 14px;
 
   width: max-content;
   display: flex;
@@ -97,18 +97,18 @@ body {
   border-radius: 28px;
   background: rgba(0, 0, 0, 0.4);
   width: 550px;
-  height: 50px; */
-  --padding: 7px;
+  height: 50px;
+  /* --padding: 7px;
   background: rgba(0, 0, 0, 0.4);
   padding: var(--padding);
   width: 550px;
   height: 50px;
   border-radius: 28px;
-  caret-color: white;
-  /* width: max-content; */
+  caret-color: white; */
+  width: max-content;
 }
 
-.searchbar form input{
+/* .searchbar form input{
   padding: 18px 10px;
   outline: none;
   border: none;
@@ -151,9 +151,9 @@ ul li button{
 ul li button:hover{
   background: #4e4e4e;
   color: white;
-}
+} */
 
-/* .searchbar a:hover {
+.searchbar a:hover {
   background: rgba(72, 72, 72, 0.4);
 }
 
@@ -170,7 +170,7 @@ ul li button:hover{
 .search-input::placeholder,
 .search-icon {
   color: rgba(255, 255, 255, 0.5);
-} */
+}
 
 .header-right .home-icon {
   font-size: 1.8rem;
