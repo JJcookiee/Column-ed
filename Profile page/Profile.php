@@ -2,19 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <?php require 'host.php'?>
+    <?php require 'userinfo.php'?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Column-ed</title>
-<<<<<<< HEAD
-    <link rel="icon" type="image/x-icon" href="/Column-ed/Profile page/Column-ed.png"/>
-    <link rel="stylesheet" href="/Column-ed/Profile page/Profile.css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
-    <link rel="stylesheet" href="/Profile page/Profile.css">
-  </head>
-=======
     <link rel="icon" type="image/x-icon" href="/Profile page/Column-ed.png"/>
     <link rel="stylesheet" href="/Profile page/Profile.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
->>>>>>> 0af5166a6d9c4e5e9eb7125a5a5a1eaa74f433ed
   <body>
     <header class="header">
       <a href="#home" class="logo">Column-ed</a>
@@ -35,34 +29,38 @@
 
     <section class="profile-header">
       <div class="avatar">
-        <img src="/Profile page/scorsese.png" alt="Avatar" />
+        <?php
+        echo "<img src='/images/$pfp' alt='Avatar' />";
+        ?>
       </div>
       <div class="profile-info">
-        <h1>Martin</h1>
-        <p class="username">@absolutecinema</p>
-        <p class="bio">my eyebrows are like carpets.</p>
+        <?php
+          echo "<h1>$displayname</h1>";
+          echo "<p class='username'>@$username</p>";
+          echo "<p class='bio'>$bio</p>";  
+        ?>
       </div>
     </section>
 
-    <section class="stats">
-      <div class="stat">
-        <span class="num">401</span>
-        <a href="#films" class="label">Films</a>
+    <?php
+    echo "<section class='stats'>
+      <div class='stat'>
+        <span class='num'>$dresult</span>
+        <a href='#films' class='label'>Diary</a>
       </div>
-      <div class="stat">
-        <span class="num">76</span>
-        <a href="#reviews" class="label">Reviews</a>
+      <div class='stat'>
+        <span class='num'>$revresult</span>
+        <a href='#reviews' class='label'>Reviews</a>
       </div>
-      <div class="stat">
-        <span class="num">12</span>
-        <a href="#lists" class="label">Lists</a>
+      <div class='stat'>
+        <span class='num'>$favresult</span>
+        <a href='watchlist.html' class='label'>Favoutrites</a>
       </div>
-    </section>
+    </section>";
+    ?>
 
     <section class="poster-section">
       <div class="rectangle-row" id="rectangles"></div>
-
-      
 
       <script src="tmdbAPI.js"></script>
 

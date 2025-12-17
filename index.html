@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Column-ed — Reviews</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="home.css">
+</head>
+<body class="dark-mode">
+  <nav class="navbar" id="mainNav">
+    <div class="nav-bands" aria-hidden="true">
+      <div class="band red"></div>
+      <div class="band green"></div>
+      <div class="band blue"></div>
+    </div>
+
+    <div class="nav-inner">
+      <div class="logo-wrap">
+        <div class="logo-strip" aria-hidden="true"><div class="logo-strip-inner"></div></div>
+        <div class="logo">
+          <h1>Column-ed</h1>
+          <p class="muted">Reviews & Ratings</p>
+        </div>
+      </div>
+
+      <div class="search">
+        <input id="searchInput" type="search" placeholder="Search movies, series, games, reviews..." />
+      </div>
+
+      <div class="nav-controls">
+        <button id="themeToggle" class="btn">Dark</button>
+        <button class="btn" id="loginBtn">Log in</button>
+        <button class="btn" id="signupBtn">Sign up</button>
+        <button class="icon-btn" id="notifyBtn" title="Notifications">🔔</button>
+        <div class="profile-pic"><img src="https://i.pravatar.cc/100" alt="profile"/></div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="featured">
+      <div class="slider" id="slider">
+        <div class="slide led red">
+          <div class="poster"><img src="https://picsum.photos/200/300?random=1" alt="poster"></div>
+          <div class="meta">
+            <h3>Slide 1 — The Highest Rated</h3>
+            <p class="muted">In-depth review and the top-rated picks.</p>
+            <p><strong>Score:</strong> 9.4 — <strong>Type:</strong> Series</p>
+            <button class="small-btn">Go to media page</button>
+          </div>
+        </div>
+
+        <div class="slide led green">
+          <div class="poster"><img src="https://picsum.photos/200/300?random=2" alt="poster"></div>
+          <div class="meta">
+            <h3>Slide 2 — Community Favourite</h3>
+            <p class="muted">Widely discussed film with heated opinions.</p>
+            <p><strong>Score:</strong> 8.9 — <strong>Type:</strong> Movie</p>
+            <button class="small-btn">Go to media page</button>
+          </div>
+        </div>
+
+        <div class="slide led blue">
+          <div class="poster"><img src="https://picsum.photos/200/300?random=3" alt="poster"></div>
+          <div class="meta">
+            <h3>Slide 3 — Editor's Pick</h3>
+            <p class="muted">A thoughtful review diving into themes and performances.</p>
+            <p><strong>Score:</strong> 9.0 — <strong>Type:</strong> Documentary</p>
+            <button class="small-btn">Go to media page</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-controls">
+        <button id="prevBtn">◀</button>
+        <button id="nextBtn">▶</button>
+      </div>
+    </section>
+
+    <aside class="sidebar-card trending">
+      
+
+      <div style="display:flex; gap:8px; margin-bottom:10px;">
+        <button id="movieBtn" class="small-btn accent1">Movies</button>
+        <button id="tvBtn" class="small-btn">TV</button>
+      </div>
+
+      <h4 id="trendingTitle">Trending Movies Today</h4>
+      <div id="trendingList"></div>
+        
+      </div>
+    </aside>
+
+
+    
+    <script src="tmdbAPIhomepage.js"></script>
+
+    <section class="reviews" id="reviewsColumn">
+      <div id="reviewsList" class="review-list">
+        <!-- sample reviews -->
+        <article class="review" data-id="1">
+          <div class="left"><img src="https://i.pravatar.cc/64?img=15" alt="profile"></div>
+          <div class="content">
+            <div class="head">
+              <div>
+                <h4>ReviewerOne — <span class="muted">Jan 3, 2025</span></h4>
+                <div class="meta">
+                  <div class="poster-mini"><img src="https://picsum.photos/120/160?random=11" alt="poster"></div>
+                  <div style="margin-left:10px"><strong>Movie Title</strong><p class="muted">A concise but deep review.</p></div>
+                </div>
+              </div>
+              <div class="meta">
+                <button class="small-btn comments-btn" data-action="comments">Comments</button>
+                <button class="small-btn open-btn">Open</button>
+              </div>
+            </div>
+            <p>This is a sample review content. Likes: <strong>456</strong> — Dislikes: <strong>12</strong></p>
+            <div class="action-row">
+              <button class="small-btn like-btn">Like</button>
+              <button class="small-btn
