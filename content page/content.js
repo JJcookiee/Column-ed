@@ -188,7 +188,7 @@ function displayMovie(data) {
   // CAST
   document.getElementById("film-cast").textContent =
     data.credits.cast
-      .slice(0, 5)
+      .slice(0, 15)
       .map(p => p.name)
       .join(", ");
 

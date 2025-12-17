@@ -14,214 +14,214 @@
     <script src="https://kit.fontawesome.com/d60b0a7baa.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="header">
-      <a href="#home" class="logo">Column-ed</a>
-      
-      
-      <div class="searchbar">
-        
-        <form action="#" autocomplete="off">
-          
-          <!-- <span class="search-icon material-symbols-outlined">search</span> -->
-          
-          <input type="text" class="autoComplete"  placeholder="Search for media...">
-          
+      <header class="header">
+        <a href="#home" class="logo">Column-ed</a>
+        <form>
+          <div class="searchbar">
+            <span class="search-icon material-symbols-outlined">search</span>
+            <input class="search-input" type="search" placeholder="Search for media...">
+          </div>
         </form>
-        
-        <!-- <ul class="contentList">
-          <li><button>Wake Up Dead Man</button></li>
-          <li><button>Wake Up Dead Man</button></li>
-          <li><button>Wake Up Dead Man</button></li>
-          <li><button>Wake Up Dead Man</button></li>
-          <li><button>Wake Up Dead Man</button></li>
-          <li><button>Wake Up Dead Man</button></li>
-          <li><button>Wake Up Dead Man</button></li>
-          <li><button>Wake Up Dead Man</button></li>
-          <li><button>Wake Up Dead Man</button></li>
-        </ul> -->
+        </div>
+        <div class="header-right">
+          <a href="/index.html" class="material-symbols-outlined home-icon" aria-hidden="true" alt="Home">home</a>
+          <a href="/Profile page/Profile.html" class="material-symbols-outlined profile-icon">account_circle</a>
+          <a href="#notifications" class="material-symbols-outlined noti-icon">notifications</a>
+          <a href="/Watchlist and favoutrites/Watchlist.html" class="material-symbols-outlined tv-icon">live_tv</a>
+        </div>
+      </header>
 
-        
-      </div>
+    <section class="poster-section">
+    <div class="rectangle-row" id="rectangles"></div>
+
+        <script>
+          const container = document.getElementById("rectangles");
+
+          for (let i = 1; i <= 1; i++) {
+            const a = document.createElement("a");
+            a.href = `#item${i}`;
+            a.className = "rectangle";
+            container.appendChild(a);
+          }
+        </script>
+
+        <div class="film-info">
+          <div class="title-year">
+              <h1 id="film-title">(Film)</h1>
+              <span id="film-year">(Year)</span>
+          </div>
+          <div class="film-director">
+              <span>Directed by <span id="film-director">(Director)</span></span>
+          </div>
+        <div class="description">
+          <div class="details">
+              <div class="details-container">
+                  <p id="film-tagline">(Tagline)</p>
+                  <p><span id="description">(Overview)</span></p>
+                  <p id="film-time-genre"><span id="film-runtime">(Runtime)</span>
+                    <span id="film-genre">(Genre)</span></p>
+                  <p><strong>Cast:</strong> <span id="film-cast">(Cast)</span></p>
+              </div>
+
+              <div class="buttons">
+              <div class="seen">
+                  <button>
+                    <span class="material-symbols-outlined seen-check">check_circle</span>
+                    <span class="material-symbols-outlined favourite">favorite</span>
+                    <span class="material-symbols-outlined watchlist">add_task</span>
+                  </button>
+              </div>
+              <div class="review">
+                  <button id="openPopup">Review</button>
+              </div>
+              <div class="review">
+                  <button id="openPopup">Review</button>
+              </div>
+              <div class="review">
+                  <button id="openPopup">Review</button>
+              </div>
+              <div class="review">
+                  <button id="openPopup">Review</button>
+              </div>
+          </div>
+        </div>
+        </div>
+      </section>  
+
       
 
-      <div class="header-right">
-        <a href="/index.html" class="material-symbols-outlined home-icon" aria-hidden="true" alt="Home">home</a>
-        <a href="/Profile page/Profile.html" class="material-symbols-outlined profile-icon">account_circle</a>
-        <a href="#notifications" class="material-symbols-outlined noti-icon">notifications</a>
-        <a href="/Watchlist and favoutrites/Watchlist.html" class="material-symbols-outlined tv-icon">live_tv</a>
-      </div>
-    </header>
+      
 
-  <section class="poster-section">
-  <div class="rectangle-row" id="rectangles"></div>
+      <div class="popup" id="popup">
+    <div class="overlay"></div>
 
-      <script>
-        const container = document.getElementById("rectangles");
+    <div class="popupContent review-popup">
+      <button class="popup-close" id="popup-close">&times;</button>
 
-        for (let i = 1; i <= 1; i++) {
-          const a = document.createElement("a");
-          a.href = `#item${i}`;
-          a.className = "rectangle";
-          container.appendChild(a);
-        }
-      </script>
-
-      <div class="film-info">
-        <div class="title-year">
-            <h1 id="film-title">(Film)</h1>
-            <span id="film-year">(Year)</span>
-        </div>
-        <div class="film-director">
-            <span>Directed by <span id="film-director">(Director)</span></span>
-        </div>
-      <div class="description">
-        <div class="details">
-            <div class="details-container">
-                <p id="film-tagline">(Tagline)</p>
-                <p><span id="description">(Overview)</span></p>
-                <p id="film-time-genre"><span id="film-runtime">(Runtime)</span>
-                  <span id="film-genre">(Genre)</span></p>
-                <p><strong>Cast:</strong> <span id="film-cast">(Cast)</span></p>
-            </div>
-        </div>
-      </div>
-      </div>
-    </section>  
-    
-        <div class="buttonsContainer">
-            <div class="review">
-                <button id="openPopup">Review</button>
-            </div>
-        </div>
-    </section>
-    
-
-    
-
-    <div class="popup" id="popup">
-  <div class="overlay"></div>
-
-  <div class="popupContent review-popup">
-    <button class="popup-close" id="popup-close">&times;</button>
-
-    <div class="review-left">
-      <div class="review-rectangle" id="review-rectangle"></div>
-    </div>
-
-    <div class="review-right">
-      <h2 class="review-heading">Review</h2>
-
-      <div class="film-info">
-        <h3 id="popup-film-title">Film Title</h3>
-        <p id="popup-film-year">(Year)</p>
+      <div class="review-left">
+        <div class="review-rectangle" id="review-rectangle"></div>
       </div>
 
-      <!-- ✅ CHECKBOXES SECTION -->
-      <div class="checkboxes">
-        <div class="watchedBox">
-          <input type="checkbox" id="watched" name="watched" unchecked />
-          <label for="watched">Watched on</label>
+      <div class="review-right">
+        <h2 class="review-heading">Review</h2>
 
-          <div class="date-container">
-            <input type="date" class="date-input" placeholder="Select date" />
-            <div class="datepicker" hidden>
-              <div class="datepicker-header">
-                <button class="prev">Prev</button>
-                <div>
-                  <select class="month-input">
-                    <option>January</option>
-                    <option>February</option>
-                    <option>March</option>
-                    <option>April</option>
-                    <option>May</option>
-                    <option>June</option>
-                    <option>July</option>
-                    <option>August</option>
-                    <option>September</option>
-                    <option>October</option>
-                    <option>November</option>
-                    <option>December</option>
-                  </select>
-                  <input type="number" class="year-input" />
+        <div class="film-info">
+          <h3 id="popup-film-title">Film Title</h3>
+          <p id="popup-film-year">(Year)</p>
+        </div>
+
+        <!-- ✅ CHECKBOXES SECTION -->
+        <div class="checkboxes">
+          <div class="watchedBox">
+            <input type="checkbox" id="watched" name="watched" unchecked />
+            <label for="watched">Watched on</label>
+
+            <div class="date-container">
+              <input type="date" class="date-input" placeholder="Select date" />
+              <div class="datepicker" hidden>
+                <div class="datepicker-header">
+                  <button class="prev">Prev</button>
+                  <div>
+                    <select class="month-input">
+                      <option>January</option>
+                      <option>February</option>
+                      <option>March</option>
+                      <option>April</option>
+                      <option>May</option>
+                      <option>June</option>
+                      <option>July</option>
+                      <option>August</option>
+                      <option>September</option>
+                      <option>October</option>
+                      <option>November</option>
+                      <option>December</option>
+                    </select>
+                    <input type="number" class="year-input" />
+                  </div>
+                  <button class="next">Next</button>
                 </div>
-                <button class="next">Next</button>
-              </div>
 
-              <div class="days">
-                <span>Sun</span>
-                <span>Mon</span>
-                <span>Tue</span>
-                <span>Wed</span>
-                <span>Thu</span>
-                <span>Fri</span>
-                <span>Sat</span>
-              </div>
+                <div class="days">
+                  <span>Sun</span>
+                  <span>Mon</span>
+                  <span>Tue</span>
+                  <span>Wed</span>
+                  <span>Thu</span>
+                  <span>Fri</span>
+                  <span>Sat</span>
+                </div>
 
-              <div class="dates">
-                <!-- Dates will be dynamically generated here -->
-              </div>
+                <div class="dates">
+                  <!-- Dates will be dynamically generated here -->
+                </div>
 
-              
+                
 
-              <div class="datepicker-footer">
-                <button class="cancel">Cancel</button>
-                <button class="apply">Apply</button>
+                <div class="datepicker-footer">
+                  <button class="cancel">Cancel</button>
+                  <button class="apply">Apply</button>
+                </div>
               </div>
             </div>
           </div>
+
+          <div class="beforeBox">
+            <input type="checkbox" id="watchedBefore" name="watchedBefore" unchecked />
+            <label for="watchedBefore">Rewatch</label>
+          </div>
         </div>
 
-         <div class="beforeBox">
-          <input type="checkbox" id="watchedBefore" name="watchedBefore" unchecked />
-          <label for="watchedBefore">Rewatch</label>
-        </div>
-      </div>
+        <textarea class="textarea" placeholder="Type your review..."></textarea>
 
-      <textarea class="textarea" placeholder="Type your review..."></textarea>
-
-      <div class="controls">
-        <div class="rating" id="rating">
-        <input type="radio" id="star1" value="1"><label for="star1"></label>
-        <input type="radio" id="star2" value="2"><label for="star2"></label>
-        <input type="radio" id="star3" value="3"><label for="star3"></label>
-        <input type="radio" id="star4" value="4"><label for="star4"></label>
-        <input type="radio" id="star5" value="5"><label for="star5"></label>
+        <div class="controls">
+          <div class="rating" id="rating">
+          <input type="radio" id="star1" value="1"><label for="star1"></label>
+          <input type="radio" id="star2" value="2"><label for="star2"></label>
+          <input type="radio" id="star3" value="3"><label for="star3"></label>
+          <input type="radio" id="star4" value="4"><label for="star4"></label>
+          <input type="radio" id="star5" value="5"><label for="star5"></label>
+          </div>
+          <button class="submitButton">Submit</button>
         </div>
-        <button class="submitButton">Submit</button>
       </div>
     </div>
   </div>
-</div>
 
 
 
-    <script src="content.js"></script>
-    <!-- <script src="Profile.js"></script> -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-    lucide.createIcons();
-    </script>
-    <footer class="footer">
-      <div class="footer-columns">
-        <div class="footer-rows">
-          <div class="footer-links">
-            <a href="/index.html" class="footer-link">Home</a>
-            <a href="/footer pages/About us.html" class="footer-link">About Us</a>
-            <a href="/footer pages/Contact us.html" class="footer-link">Contact Us</a>
-            <a href="/footer pages/Terms and Conditions.html" class="footer-link">Terms and Conditions</a>
-            <a href="/footer pages/Privacy Policy.html" class="footer-link">Privacy Policy</a>
+
+
+      <script src="content.js"></script>
+      <!-- <script src="Profile.js"></script> -->
+      <script src="https://unpkg.com/lucide@latest"></script>
+      <script>
+      lucide.createIcons();
+      </script>
+
+      <footer class="footer">
+        <div class="footer-columns">
+          <div class="footer-rows">
+            <div class="footer-links">
+              <a href="/index.html" class="footer-link">Home</a>
+              <a href="/footer pages/About us.html" class="footer-link">About Us</a>
+              <a href="/footer pages/Contact us.html" class="footer-link">Contact Us</a>
+              <a href="/footer pages/Terms and Conditions.html" class="footer-link">Terms and Conditions</a>
+              <a href="/footer pages/Privacy Policy.html" class="footer-link">Privacy Policy</a>
+            </div>
+            <div class="footer-copy">
+              <p>&copy; 2025 Column-ed. All rights reserved.</p>
+            </div>
           </div>
-          <div class="footer-copy">
-            <p>&copy; 2025 Column-ed. All rights reserved.</p>
+          <div class="footer-socials">
+            <a class="footer-social" href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+            <p class="seperator">•</p>
+            <a class="footer-social" href="https://www.twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+            <p class="seperator">•</p>
+            <a class="footer-social" href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <p class="seperator">•</p>
+            <a class="footer-social" href="https://www.youtube.com" target="_blank" aria-label="Youtube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
           </div>
         </div>
-        <div class="footer-socials">
-          <a class="footer-social" href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-          <a class="footer-social" href="https://www.twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-          <a class="footer-social" href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-          <a class="footer-social" href="https://www.youtube.com" target="_blank" aria-label="Youtube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-        </div>
-      </div>
-    </footer>
+      </footer>
 </body>
 </html>
