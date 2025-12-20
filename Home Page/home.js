@@ -97,7 +97,7 @@ const slides = document.querySelectorAll('.slide');
 const container = document.querySelector('.slides-container');
 let index = 0;
 
-// Carousel trending funciton
+// Carousel trending functon
 import {
   fetchFromTMDB,
   IMG_POSTER,
