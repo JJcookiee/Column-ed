@@ -87,7 +87,9 @@ body {
   color: black;
 }
 
-.searchbar {
+/* old search bar css */
+
+/* .searchbar {
   --padding: 14px;
 
   width: max-content;
@@ -98,60 +100,8 @@ body {
   background: rgba(0, 0, 0, 0.4);
   width: 550px;
   height: 50px;
-  /* --padding: 7px;
-  background: rgba(0, 0, 0, 0.4);
-  padding: var(--padding);
-  width: 550px;
-  height: 50px;
-  border-radius: 28px;
-  caret-color: white; */
   width: max-content;
 }
-
-/* .searchbar form input{
-  padding: 18px 10px;
-  outline: none;
-  border: none;
-  font-size: 18px;
-  width: 350px;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-ul{
-  width: 350px;
-  max-height: 350px;
-  overflow-y: auto;
-  position: relative;
-  z-index: 1;
-}
-
-ul li{
-  list-style: none;
-  border: 1px solid #e3e3e3;
-  border-top: unset;
-}
-
-ul li button{
-  border: none;
-  outline: none;
-  background: transparent;
-  font-size: 18px;
-  padding: 10px;
-  cursor: pointer;
-  width: 100%;
-  text-align: left;
-  transition: 0.2s;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: white;
-}
-
-ul li button:hover{
-  background: #4e4e4e;
-  color: white;
-} */
 
 .searchbar a:hover {
   background: rgba(72, 72, 72, 0.4);
@@ -170,7 +120,77 @@ ul li button:hover{
 .search-input::placeholder,
 .search-icon {
   color: rgba(255, 255, 255, 0.5);
+} */
+
+
+
+/* new searchbar css */
+
+.searchbar {
+  --padding: 7px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: var(--padding);
+  width: 550px;
+  height: 50px;
+  border-radius: 28px;
+  caret-color: white;
 }
+
+.searchbar form input{
+  padding: 18px 10px;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  width: 350px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+ul{
+  width: 100%;
+  max-height: 350px;
+  overflow-y: auto;
+  position: relative;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+ul li{
+  list-style: none;
+  border: 1px solid #e3e3e3;
+  border-top: unset;
+  border-left: unset;
+  border-right: unset;
+  
+}
+
+ul li button{
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 18px;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: 0.2s;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--blue-color);
+}
+
+ul li button:hover{
+  background: #4e4e4e;
+  color: white;
+}
+
+
+
+
+
+
+
 
 .header-right .home-icon {
   font-size: 1.8rem;
