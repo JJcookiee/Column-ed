@@ -1,0 +1,1 @@
+ALTER TABLE media ADD api_id int NOT NULL;

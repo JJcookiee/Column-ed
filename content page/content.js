@@ -46,141 +46,14 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
-// document.getElementById("film-title").textContent = data.title;
-// document.getElementById("film-year").textContent = data.year;
-// document.getElementById("film-director").textContent = data.director;
-
-// const datepicker = document.querySelector(".datepicker");
-// const dateInput = document.querySelector(".date-input");
-// const yearInput = datepicker.querySelector(".year-input");
-// const monthInput = datepicker.querySelector(".month-input");
-// const cancelBtn = datepicker.querySelector(".cancel");
-// const applyBtn = datepicker.querySelector(".apply");
-// const nextBtn = datepicker.querySelector(".next");
-// const prevBtn = datepicker.querySelector(".prev");
-// const dates = datepicker.querySelector(".dates");
-
-// let selectedDate = new Date();
-// let year = selectedDate.getFullYear();
-// let month = selectedDate.getMonth();
-
-// dateInput.addEventListener("click", () => {
-//   datepicker.hidden = false;
-// });
-
-// cancelBtn.addEventListener("click", () => {
-//   datepicker.hidden = true;
-// });
-
-// applyBtn.addEventListener("click", () => {
-//   dateInput.value = selectedDate.toLocaleDateString("en-UK", {
-//     day: "2-digit",
-//     month: "2-digit",
-//     year: "numeric",
-//   });
-
-//   datepicker.hidden = true;
-// });
-
-// nextBtn.addEventListener("click", () => {
-//   if (month === 11) year++;
-//   month = (month + 1) % 12;
-//   displayDates();
-// });
-
-// prevBtn.addEventListener("click", () => {
-//   if (month === 0) year--;
-//   month = (month - 1 + 12) % 12;
-//   displayDates();
-// });
-
-// monthInput.addEventListener("change", () => {
-//   month = monthInput.selectedIndex;
-//   displayDates();
-// });
-
-// yearInput.addEventListener("change", () => {
-//   year = yearInput.number;
-//   displayDates();
-// });
-
-// const updateYearMonth = () => {
-//   monthInput.selectedIndex = month;
-//   yearInput.number = year;
-// };
-
-// const handleDateClick = (e) => {
-//   const button = e.target;
-
-//   const selected = dates.querySelector(".selected");
-//   selected && selected.classList.remove("selected");
-
-//   button.classList.add("selected");
-
-//   selectedDate = new Date(year, month, parseInt(button.textContent));
-// };
-
-// const displayDates = () => {
-//   updateYearMonth();
-
-//   dates.innerHTML = "";
-
-//   const lastOfPrevMonth = new Date(year, month, 0);
-
-//   for (let i = 0; i <= lastOfPrevMonth.getDay(); i++) {
-//     const text = lastOfPrevMonth.getDate() - lastOfPrevMonth.getDay() + i;
-//     const button = createButton(text, true);
-//     dates.appendChild(button);
-//   }
-
-//   const lastOfMonth = new Date(year, month + 1, 0);
-
-//   for (let i = 1; i <= lastOfMonth.getDate(); i++) {
-//     const button = createButton(i, false);
-//     button.addEventListener("click", handleDateClick);
-//     dates.appendChild(button);
-//   }
-
-//   const firstOfNextMonth = new Date(year, month + 1, 1);
-
-//   for (let i = firstOfNextMonth.getDay(); i < 7; i++) {
-//     const text = firstOfNextMonth.getDate() - firstOfNextMonth.getDay() + i;
-
-//     const button = createButton(text, true);
-//     dates.appendChild(button);
-//   }
-// };
-
-// const createButton = (text, isDisabled = false) => {
-//   const currentDate = new Date();
-
-//   const isToday =
-//     currentDate.getDate() === text &&
-//     currentDate.getFullYear() === year &&
-//     currentDate.getMonth() === month;
-
-//   const selected =
-//     selectedDate.getDate() === text &&
-//     selectedDate.getFullYear() === year &&
-//     selectedDate.getMonth() === month;
-
-//   const button = document.createElement("button");
-//   button.textContent = text;
-//   button.disabled = isDisabled;
-//   button.classList.toggle("today", isToday);
-//   button.classList.toggle("selected", selected);
-//   return button;
-// };
-
-// displayDates();
-
 const stars = document.querySelectorAll(".rating input");
 let currentRating = 0;
 
 function updateStars(rating) {
   stars.forEach((star) => {
     const label = star.nextElementSibling;
-    if (parseInt(star.value) <= rating) {
+    const value = parseFloat(star.value);
+    if (value <= rating) {
       label.classList.add("active");
     } else {
       label.classList.remove("active");
@@ -192,7 +65,7 @@ stars.forEach((star) => {
   const label = star.nextElementSibling;
 
   label.addEventListener("mouseenter", () => {
-    updateStars(parseInt(star.value));
+    updateStars(parseFloat(star.value));
   });
 
   label.addEventListener("mouseleave", () => {
@@ -200,7 +73,7 @@ stars.forEach((star) => {
   });
 
   star.addEventListener("click", function () {
-    const selectedValue = parseInt(this.value);
+    const selectedValue = parseFloat(this.value);
 
     if (selectedValue === currentRating) {
       currentRating = 0;
@@ -225,14 +98,14 @@ stars.forEach((star) => {
 
 // api stuff
 
-
-
 const apiKey = "4b3cf5d163b21a803a304391cab5a629";
 const IMG_PATH = "https://image.tmdb.org/t/p/w500";
+const BASE_URL = "https://api.themoviedb.org/3";
 
 const params = new URLSearchParams(window.location.search);
 const movieId = params.get("id");
 const type = params.get("type") || "movie";
+const autoComplete = document.querySelector(".autoComplete");
 
 if (!movieId) {
   console.error("No movie ID found");
@@ -271,7 +144,7 @@ function displayMovie(data) {
 
   if (type === "movie") {
     const director = data.credits.crew.find(
-      person => person.job === "Director"
+      (person) => person.job === "Director"
     );
     creator = director ? director.name : "Unknown";
   } else {
@@ -289,8 +162,9 @@ function displayMovie(data) {
     data.tagline || "No tagline available.";
 
   // GENRES
-  document.getElementById("film-genre").textContent =
-    data.genres.map(g => g.name).join(", ");
+  document.getElementById("film-genre").textContent = data.genres
+    .map((g) => g.name)
+    .join(", ");
 
   // RUNTIME
   let runtimeText = "N/A";
@@ -305,11 +179,10 @@ function displayMovie(data) {
   document.getElementById("film-runtime").textContent = runtimeText;
 
   // CAST
-  document.getElementById("film-cast").textContent =
-    data.credits.cast
-      .slice(0, 5)
-      .map(p => p.name)
-      .join(", ");
+  document.getElementById("film-cast").textContent = data.credits.cast
+    .slice(0, 15)
+    .map((p) => p.name)
+    .join(", ");
 
   // POSTER
   document.getElementById("rectangles").innerHTML = `
@@ -322,6 +195,169 @@ function displayMovie(data) {
   `;
 }
 
+// searchbar function
 
+const searchInput = document.querySelector(".search-input");
+const resultsList = document.getElementById("search-results");
+const searchForm = document.querySelector(".searchbar form");
+
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+});
+
+let debounceTimer = null;
+
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.trim();
+
+  clearTimeout(debounceTimer);
+
+  if (query.length < 2) {
+    resultsList.innerHTML = "";
+    return;
+  }
+
+  debounceTimer = setTimeout(() => {
+    searchTMDB(query);
+  }, 300);
+});
+
+async function searchTMDB(query) {
+  try {
+    const res = await fetch(
+      `${BASE_URL}/search/multi?api_key=${apiKey}&query=${encodeURIComponent(
+        query
+      )}`
+    );
+
+    const data = await res.json();
+    showResults(data.results);
+  } catch (err) {
+    console.error("Search error:", err);
+  }
+}
+
+function showResults(results) {
+  resultsList.innerHTML = "";
+
+  results
+    .filter((item) => item.media_type === "movie" || item.media_type === "tv")
+    .slice(0, 8)
+    .forEach((item) => {
+      const li = document.createElement("li");
+      const button = document.createElement("button");
+
+      const title = item.title || item.name;
+      const year = (item.release_date || item.first_air_date || "").split(
+        "-"
+      )[0];
+
+      button.textContent = year ? `${title} (${year})` : title;
+
+      button.addEventListener("click", () => {
+        window.location.href = `content.html?id=${item.id}&type=${item.media_type}`;
+      });
+
+      li.appendChild(button);
+      resultsList.appendChild(li);
+    });
+}
 
 fetchMovieDetails();
+
+if (movieId) {
+  // --- Elements ---
+  const seenIcon = document.querySelector(".seen-check");
+  const watchedCheckbox = document.getElementById("watched"); // main watched checkbox
+  const favouriteIcon = document.querySelector(".favourite");
+  const watchlistIcon = document.querySelector(".watchlist");
+  const stars = document.querySelectorAll(".rating input");
+  let currentRating = 0;
+
+  // --- Load saved states ---
+  const savedWatched =
+    localStorage.getItem(`watchedStatus_${movieId}`) === "true";
+  const savedFavourite =
+    localStorage.getItem(`favourite_${movieId}`) === "true";
+  const savedWatchlist =
+    localStorage.getItem(`watchlist_${movieId}`) === "true";
+  const savedRating =
+    parseFloat(localStorage.getItem(`rating_${movieId}`)) || 0;
+
+  watchedCheckbox.checked = savedWatched;
+  seenIcon.classList.toggle("active", savedWatched);
+  favouriteIcon.classList.toggle("active", savedFavourite);
+  watchlistIcon.classList.toggle("active", savedWatchlist);
+  currentRating = savedRating;
+
+  // --- Helper to update stars ---
+  function updateStars(rating) {
+    stars.forEach((star) => {
+      const label = star.nextElementSibling;
+      const value = parseInt(star.value);
+      label.classList.toggle("active", value <= rating);
+    });
+  }
+  if (currentRating > 0) updateStars(currentRating);
+
+  // --- Watched toggle ---
+  watchedCheckbox.addEventListener("change", () => {
+    const isChecked = watchedCheckbox.checked;
+    seenIcon.classList.toggle("active", isChecked);
+    localStorage.setItem(`watchedStatus_${movieId}`, isChecked);
+  });
+
+  seenIcon.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const newState = !watchedCheckbox.checked;
+    watchedCheckbox.checked = newState;
+    seenIcon.classList.toggle("active", newState);
+    localStorage.setItem(`watchedStatus_${movieId}`, newState);
+  });
+
+  // --- Favourite toggle ---
+  favouriteIcon.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    favouriteIcon.classList.toggle("active");
+    localStorage.setItem(
+      `favourite_${movieId}`,
+      favouriteIcon.classList.contains("active")
+    );
+  });
+
+  // --- Watchlist toggle ---
+  watchlistIcon.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    watchlistIcon.classList.toggle("active");
+    localStorage.setItem(
+      `watchlist_${movieId}`,
+      watchlistIcon.classList.contains("active")
+    );
+  });
+
+  // --- Rating stars ---
+  stars.forEach((star) => {
+    const label = star.nextElementSibling;
+
+    label.addEventListener("mouseenter", () =>
+      updateStars(parseInt(star.value))
+    );
+    label.addEventListener("mouseleave", () => updateStars(currentRating));
+
+    star.addEventListener("click", function () {
+      const selectedValue = parseInt(this.value);
+      if (selectedValue === currentRating) {
+        currentRating = 0;
+        star.checked = false;
+        localStorage.removeItem(`rating_${movieId}`);
+      } else {
+        currentRating = selectedValue;
+        localStorage.setItem(`rating_${movieId}`, currentRating);
+      }
+      updateStars(currentRating);
+    });
+  });
+}
