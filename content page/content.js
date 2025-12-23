@@ -86,15 +86,7 @@ stars.forEach((star) => {
   });
 });
 
-// document.querySelectorAll('.rating input').forEach(radio => {
-//   radio.addEventListener('click', function(e) {
-//     if (this.wasChecked) {
-//       this.checked = false;
-//     }
-//     document.querySelectorAll('.rating input').forEach(r => r.wasChecked = false);
-//     this.wasChecked = this.checked;
-//   });
-// });
+
 
 // api stuff
 
@@ -264,6 +256,9 @@ function showResults(results) {
 }
 
 fetchMovieDetails();
+
+
+
 
 if (movieId) {
   // --- Elements ---

@@ -98,14 +98,134 @@ const container = document.querySelector('.slides-container');
 let index = 0;
 
 // Carousel trending functon
-import {
-  fetchFromTMDB,
-  IMG_POSTER,
-  IMG_BACKDROP
-} from "../api/tmdb.js";
+// import {
+//   fetchFromTMDB,
+//   IMG_POSTER,
+//   IMG_BACKDROP
+// } from "../api/tmdb.js";
 
+
+// const carouselTrack = document.querySelector(".carousel-track");
+// const trendingList = document.getElementById("trendingList");
+// const movieBtn = document.getElementById("movieBtn");
+// const tvBtn = document.getElementById("tvBtn");
+// const trendingTitle = document.getElementById("trendingTitle");
+
+// let currentType = "movie";
+// let carouselIndex = 0;
+
+
+// async function loadHome(type) {
+//   try {
+//     const data = await fetchFromTMDB(`/trending/${type}/day`);
+
+//     renderCarousel(data.results);
+//     renderTrending(data.results, type);
+
+//   } catch (err) {
+//     console.error("TMDB error:", err);
+//   }
+// }
+
+
+// function renderCarousel(results) {
+//   carouselTrack.innerHTML = "";
+
+//   results
+//     .filter(item => item.backdrop_path)
+//     .slice(0, 5)
+//     .forEach((item, index) => {
+//       const img = document.createElement("img");
+//       img.src = IMG_BACKDROP + item.backdrop_path;
+//       img.className = "carousel-slide";
+//       if (index === 0) img.classList.add("active");
+
+//       img.alt = item.title || item.name;
+
+//       img.addEventListener("click", () => {
+//         window.location.href =
+//           `/content page/content.html?id=${item.id}&type=${currentType}`;
+//       });
+
+//       carouselTrack.appendChild(img);
+//     });
+
+//   carouselIndex = 0;
+//   updateCarousel();
+// }
+
+// function updateCarousel() {
+//   carouselTrack.style.transform =
+//     `translateX(-${carouselIndex * 100}%)`;
+// }
+
+
+// document.querySelector(".next").addEventListener("click", () => {
+//   const slides = document.querySelectorAll(".carousel-slide");
+//   carouselIndex = (carouselIndex + 1) % slides.length;
+//   updateCarousel();
+// });
+
+// document.querySelector(".prev").addEventListener("click", () => {
+//   const slides = document.querySelectorAll(".carousel-slide");
+//   carouselIndex = (carouselIndex - 1 + slides.length) % slides.length;
+//   updateCarousel();
+// });
+
+
+// function renderTrending(results, type) {
+//   trendingList.innerHTML = "";
+
+//   results.forEach(item => {
+//     if (!item.poster_path) return;
+
+//     const link = document.createElement("a");
+//     link.href = `/content page/content.html?id=${item.id}&type=${type}`;
+//     link.className = "posterContainer";
+
+//     link.innerHTML = `
+//       <img
+//         src="${IMG_POSTER + item.poster_path}"
+//         alt="${item.title || item.name}"
+//         loading="lazy"
+//       >
+//     `;
+
+//     trendingList.appendChild(link);
+//   });
+// }
+
+
+// movieBtn.addEventListener("click", () => {
+//   currentType = "movie";
+//   trendingTitle.textContent = "Trending Movies Today";
+//   movieBtn.classList.add("accent1");
+//   tvBtn.classList.remove("accent1");
+//   loadHome(currentType);
+// });
+
+// tvBtn.addEventListener("click", () => {
+//   currentType = "tv";
+//   trendingTitle.textContent = "Trending TV Shows Today";
+//   tvBtn.classList.add("accent1");
+//   movieBtn.classList.remove("accent1");
+//   loadHome(currentType);
+// });
+
+
+// loadHome(currentType);
+
+
+// trending
+
+const apiKey = "4b3cf5d163b21a803a304391cab5a629";
+const IMG_POSTER = "https://image.tmdb.org/t/p/w500";
+const IMG_BACKDROP = "https://image.tmdb.org/t/p/w1280";
 
 const carouselTrack = document.querySelector(".carousel-track");
+const prevBtn = document.querySelector(".carousel-btn.prev");
+const nextBtn = document.querySelector(".carousel-btn.next");
+
 const trendingList = document.getElementById("trendingList");
 const movieBtn = document.getElementById("movieBtn");
 const tvBtn = document.getElementById("tvBtn");
@@ -113,106 +233,135 @@ const trendingTitle = document.getElementById("trendingTitle");
 
 let currentType = "movie";
 let carouselIndex = 0;
-
+let carouselInterval = null;
+let carouselItems = [];
+const CAROUSEL_DELAY = 2000;
 
 async function loadHome(type) {
+  const url = `https://api.themoviedb.org/3/trending/${type}/day?api_key=${apiKey}`;
+
   try {
-    const data = await fetchFromTMDB(`/trending/${type}/day`);
+    const res = await fetch(url);
+    const data = await res.json();
+    const results = data.results || [];
 
-    renderCarousel(data.results);
-    renderTrending(data.results, type);
-
+    renderCarousel(results, type);
+    renderTrending(results, type);
   } catch (err) {
     console.error("TMDB error:", err);
   }
 }
 
+function renderCarousel(results, type) {
+  if (!carouselTrack) return;
 
-function renderCarousel(results) {
   carouselTrack.innerHTML = "";
 
-  results
+  carouselItems = results
     .filter(item => item.backdrop_path)
-    .slice(0, 5)
-    .forEach((item, index) => {
-      const img = document.createElement("img");
-      img.src = IMG_BACKDROP + item.backdrop_path;
-      img.className = "carousel-slide";
-      if (index === 0) img.classList.add("active");
+    .slice(0, 5);
 
-      img.alt = item.title || item.name;
+  carouselItems.forEach((item) => {
+    const img = document.createElement("img");
+    img.className = "carousel-slide";
+    img.src = IMG_BACKDROP + item.backdrop_path;
+    img.alt = item.title || item.name || "Trending";
 
-      img.addEventListener("click", () => {
-        window.location.href =
-          `/content page/content.html?id=${item.id}&type=${currentType}`;
-      });
-
-      carouselTrack.appendChild(img);
+    img.addEventListener("click", () => {
+      window.location.href =
+        `/content page/content.html?id=${item.id}&type=${type}`;
     });
+
+    carouselTrack.appendChild(img);
+  });
 
   carouselIndex = 0;
   updateCarousel();
+  updateCarouselTitle();
+  startCarouselAutoRotate();
 }
 
+function updateCarouselTitle() {
+  const titleEl = document.getElementById("carouselTitle");
+  if (!titleEl || !carouselItems.length) return;
+
+  const current = carouselItems[carouselIndex];
+  titleEl.textContent = current.title || current.name || "";
+}
+
+
 function updateCarousel() {
+  const slides = document.querySelectorAll(".carousel-slide");
+  if (!slides.length) return;
+
   carouselTrack.style.transform =
     `translateX(-${carouselIndex * 100}%)`;
 }
 
+function startCarouselAutoRotate() {
+  // Clear any existing timer (important when switching Movie/TV)
+  if (carouselInterval) {
+    clearInterval(carouselInterval);
+  }
 
-document.querySelector(".next").addEventListener("click", () => {
-  const slides = document.querySelectorAll(".carousel-slide");
-  carouselIndex = (carouselIndex + 1) % slides.length;
-  updateCarousel();
-});
+  carouselInterval = setInterval(() => {
+    const slides = document.querySelectorAll(".carousel-slide");
+    if (!slides.length) return;
 
-document.querySelector(".prev").addEventListener("click", () => {
-  const slides = document.querySelectorAll(".carousel-slide");
-  carouselIndex = (carouselIndex - 1 + slides.length) % slides.length;
-  updateCarousel();
-});
+    carouselIndex = (carouselIndex + 1) % slides.length;
+    updateCarousel();
+    updateCarouselTitle();
+  }, CAROUSEL_DELAY);
+}
 
 
 function renderTrending(results, type) {
+  if (!trendingList) return;
   trendingList.innerHTML = "";
 
   results.forEach(item => {
     if (!item.poster_path) return;
 
-    const link = document.createElement("a");
-    link.href = `/content page/content.html?id=${item.id}&type=${type}`;
-    link.className = "posterContainer";
+    const a = document.createElement("a");
+    a.href = `/content page/content.html?id=${item.id}&type=${type}`;
+    a.className = "posterContainer";
+    a.innerHTML = `<img src="${IMG_POSTER + item.poster_path}" alt="${item.title || item.name}">`;
 
-    link.innerHTML = `
-      <img
-        src="${IMG_POSTER + item.poster_path}"
-        alt="${item.title || item.name}"
-        loading="lazy"
-      >
-    `;
-
-    trendingList.appendChild(link);
+    trendingList.appendChild(a);
   });
 }
 
+nextBtn?.addEventListener("click", () => {
+  const slides = document.querySelectorAll(".carousel-slide");
+  if (!slides.length) return;
+  carouselIndex = (carouselIndex + 1) % slides.length;
+  updateCarousel();
+});
 
-movieBtn.addEventListener("click", () => {
+prevBtn?.addEventListener("click", () => {
+  const slides = document.querySelectorAll(".carousel-slide");
+  if (!slides.length) return;
+  carouselIndex = (carouselIndex - 1 + slides.length) % slides.length;
+  updateCarousel();
+});
+
+movieBtn?.addEventListener("click", () => {
   currentType = "movie";
   trendingTitle.textContent = "Trending Movies Today";
   movieBtn.classList.add("accent1");
   tvBtn.classList.remove("accent1");
-  loadHome(currentType);
+  loadHome("movie");
 });
 
-tvBtn.addEventListener("click", () => {
+tvBtn?.addEventListener("click", () => {
   currentType = "tv";
   trendingTitle.textContent = "Trending TV Shows Today";
   tvBtn.classList.add("accent1");
   movieBtn.classList.remove("accent1");
-  loadHome(currentType);
+  loadHome("tv");
 });
 
-
-loadHome(currentType);
+// initial load
+loadHome("movie");
 
 

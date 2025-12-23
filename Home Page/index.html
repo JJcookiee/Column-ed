@@ -58,10 +58,11 @@
     <button class="carousel-btn prev">&#10094;</button>
 
     <div class="carousel-track-container">
+      <div class="carousel-title" id="carouselTitle"></div>
+      
       <div class="carousel-track">
-        <img src="https://images.unsplash.com/photo-1558981285-6f0c94958bb6?auto=format&w=1600" class="carousel-slide active">
-        <img src="https://images.unsplash.com/photo-1558981285-6f0c94958bb6?auto=format&w=1600" class="carousel-slide">
-        <img src="https://images.unsplash.com/photo-1558981285-6f0c94958bb6?auto=format&w=1600" class="carousel-slide">
+        <img src="" class="carousel-slide active">
+        <img src="" class="carousel-slide">
       </div>
     </div>
 
@@ -77,18 +78,19 @@
         <h1 class="trends-title">Trends</h1>
     </div>
     <section class="poster-section">
-      <div class="rectangle-row">
-        <a href="#item1" class="rectangle">
-          <img src="https://images.unsplash.com/photo-1558981285-6f0c94958bb6?auto=format&w=1600" class="poster">
-          <h3 class="poster-name">Name</h3>
-          <img src="images/profile1.jpg" class="rec-pic">
-          <h3 class="rec-prof-name">Profile Name</h3>
+      <aside class="sidebar-card trending">
+      
+
+        <div style="display:flex; gap:8px; margin-bottom:10px;">
+          <button id="movieBtn" class="small-btn accent1">Movies</button>
+          <button id="tvBtn" class="small-btn">TV</button>
+        </div>
+
+        <h4 id="trendingTitle">Trending Movies Today</h4>
+        <div id="trendingList"></div>
           
-          <p class="review-text">Review</p>
-          
-        </a>
-        
-      </div>
+        </div>
+    </aside>
 
       <div class="profile-panel">
         <a href="#" class="profile-rectangle">
