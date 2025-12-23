@@ -11,25 +11,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/x-icon" href="/Profile page/Column-ed.png"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0&icon_names=favorite" />
     <script src="https://kit.fontawesome.com/d60b0a7baa.js" crossorigin="anonymous"></script>
 </head>
 <body>
       <header class="header">
         <a href="#home" class="logo">Column-ed</a>
-
-        <!-- old searchbar -->
-
-        <!-- <form>
-          <div class="searchbar">
-            <span class="search-icon material-symbols-outlined">search</span>
-            <input class="search-input" type="search" placeholder="Search for media...">
-          </div>
-        </form> -->
         
         <div class="searchbar">
 
           <form action="#" autocomplete="off">
 
+            <span class="search-icon material-symbols-outlined">search</span>
             <input class="search-input" type="text" placeholder="Search for media...">
 
           </form>
@@ -86,13 +79,32 @@
               <div class="buttons">
               <div class="seen">
                   <button>
-                    <span class="material-symbols-outlined seen-check">check_circle</span>
-                    <span class="material-symbols-outlined favourite">favorite</span>
-                    <span class="material-symbols-outlined watchlist">add_task</span>
+                    <div class="review-icon">
+                      <span class="material-symbols-outlined seen-check" style="font-variation-settings: 'wght' 500;">check_circle</span>
+                      <p>Watched</p>
+                    </div>
+                    <div class="review-icon">
+                      <span class="material-symbols-outlined favourite" style="font-variation-settings: 'FILL' 1, 'wght' 500;">favorite</span>
+                      <p>Favourite</p>
+                    </div>
+                    <div class="review-icon">
+                      <span class="material-symbols-outlined watchlist" style="font-variation-settings: 'wght' 500;">add_task</span>
+                      <p>Watchlist</p>
+                    </div>
                   </button>
               </div>
+
               <div class="review">
-                  <button id="openPopup">Review</button>
+                <button>
+                  <div class="review-controls">
+                    <div class="rating" id="rating">
+                    <input type="radio" id="star1" value="1"><label for="star1"></label>
+                    <input type="radio" id="star2" value="2"><label for="star2"></label>
+                    <input type="radio" id="star3" value="3"><label for="star3"></label>
+                    <input type="radio" id="star4" value="4"><label for="star4"></label>
+                    <input type="radio" id="star5" value="5"><label for="star5"></label>
+                  </div>
+                  </button>
               </div>
               <div class="review">
                   <button id="openPopup">Review</button>
@@ -186,8 +198,8 @@
           </div>
 
           <div class="beforeBox">
-            <input type="checkbox" id="watchedBefore" name="watchedBefore" unchecked />
-            <label for="watchedBefore">Rewatch</label>
+            <input type="checkbox" id="watched" name="watched-checkbox" />
+            <label for="watched">Rewatch</label>
           </div>
         </div>
 

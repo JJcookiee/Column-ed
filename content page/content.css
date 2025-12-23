@@ -122,8 +122,6 @@ body {
   color: rgba(255, 255, 255, 0.5);
 } */
 
-
-
 /* new searchbar css */
 
 .searchbar {
@@ -136,17 +134,28 @@ body {
   caret-color: white;
 }
 
-.searchbar form input{
+.searchbar form {
+  display: flex;
+  align-items: center;
+}
+
+.searchbar form input {
   padding: 18px 10px;
   outline: none;
   border: none;
   font-size: 18px;
-  width: 350px;
+  width: 550px;
   background: transparent;
   color: rgba(255, 255, 255, 0.5);
 }
 
-ul{
+.search-input::placeholder,
+.search-icon {
+  color: rgba(255, 255, 255, 0.5);
+  margin-left: 10px;
+}
+
+ul {
   width: 100%;
   max-height: 350px;
   overflow-y: auto;
@@ -155,16 +164,15 @@ ul{
   border-radius: 10px;
 }
 
-ul li{
+ul li {
   list-style: none;
   border: 1px solid #e3e3e3;
   border-top: unset;
   border-left: unset;
   border-right: unset;
-  
 }
 
-ul li button{
+ul li button {
   border: none;
   outline: none;
   background: transparent;
@@ -180,17 +188,10 @@ ul li button{
   background-color: var(--blue-color);
 }
 
-ul li button:hover{
+ul li button:hover {
   background: #4e4e4e;
   color: white;
 }
-
-
-
-
-
-
-
 
 .header-right .home-icon {
   font-size: 1.8rem;
@@ -292,13 +293,13 @@ ul li button:hover{
   display: flex;
   margin-top: 20px;
   gap: 20px;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bolder;
 }
 
 #film-runtime {
   font-size: 1.1rem;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bolder;
 }
 
@@ -340,7 +341,86 @@ ul li button:hover{
 
 .seen button {
   width: 300px;
-  height: 90px;
+  height: 120px;
+  margin-left: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 20px;
+  background: #616d86;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  transition: color 0.2s ease, transform 0.2s ease;
+  border: none;
+}
+
+.review-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.review-icon span {
+  font-size: 3rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.review button {
+  color: black;
+  display: flex;
+  font-size: 3rem;
+  justify-content: space-between;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.review-icon p,
+.review-controls p {
+  font-size: 0.9rem;
+  color: black;
+}
+
+.review-icon:hover span {
+  color: white;
+}
+
+.seen button span {
+  padding: 0.9rem 0.9rem 0;
+}
+
+.seen button .seen-check,
+.seen button .favourite,
+.seen button .watchlist {
+  color: black;
+  display: flex;
+  font-size: 3rem;
+  justify-content: space-between;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.seen button .seen-check:hover,
+.seen button .favourite:hover,
+.seen button .watchlist:hover,
+.review-icon p:hover {
+  color: white;
+}
+
+.seen button .seen-check.active {
+  color: var(--green-color);
+}
+
+.seen button .favourite.active {
+  color: var(--red-color);
+}
+
+.seen button .watchlist.active {
+  color: #cd804a;
+}
+
+/* .review-rating {
+  width: 300px;
+  height: 65px;
   margin-left: auto;
   display: flex;
   font-size: 1.2rem;
@@ -352,24 +432,7 @@ ul li button:hover{
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   transition: color 0.2s ease, transform 0.2s ease;
   border: none;
-}
-
-.seen button span {
-  padding: 15px;
-}
-
-.seen button .seen-check,
-.seen button .favourite, .seen button .watchlist {
-  display: flex;
-  font-size: 3rem;
-  justify-content: space-between;
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.seen button .seen-check:hover,
-.seen button .favourite:hover, .seen button .watchlist:hover {
-  color: white;
-}
+} */
 
 .review button {
   width: 300px;
@@ -388,7 +451,6 @@ ul li button:hover{
 }
 
 .review button:hover {
-  /* background: #8f9bb5; */
   color: white;
 }
 
@@ -430,8 +492,8 @@ ul li button:hover{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1.15);
-  width: 60%;
-  height: 40%;
+  width: 60rem;
+  height: 30rem;
   background: #707070;
   padding: 25px;
   border-radius: 10px;
@@ -794,7 +856,7 @@ input {
   text-align: center;
   background: #616d86;
   color: white;
-  padding: 1em;
+  padding: 0 1em 0;
 
   margin-top: auto;
 }
@@ -805,9 +867,7 @@ input {
 
 .footer-columns {
   columns: 2;
-  margin: 0px 25px;
   text-decoration: none;
-  padding-bottom: 10px;
 }
 
 .footer-rows {
