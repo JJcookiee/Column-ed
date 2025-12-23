@@ -322,6 +322,7 @@ body.light-mode input::placeholder {
 }
 
 .rectangle {
+  position: relative;
   flex: 0 0 auto;
   height: 300px;
   width: 800px;
@@ -359,6 +360,36 @@ body.light-mode input::placeholder {
   color: #99AA38;
   justify-content: flex-end;
 
+}
+
+.rec-pic {
+  position: absolute;
+  top: 20px;
+  right: 500px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.rec-prof-name {
+  position: absolute;
+  top: 38px;
+  right: 380px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #008402;
+  white-space: nowrap;
+}
+
+.review-text {
+  position: absolute;
+  top: 100px;
+  right: 500px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+  white-space: nowrap;
 }
 
 
