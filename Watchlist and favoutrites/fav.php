@@ -5,7 +5,7 @@ require 'host.php';
 
 $sql = "
     SELECT m.title, m.api_id
-    FROM diary d
+    FROM favourites d
     JOIN media m ON d.media_id = m.media_id
     WHERE d.user_id = " . intval($_SESSION['user_id']);
 $result = $conn->query($sql);
