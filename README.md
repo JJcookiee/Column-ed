@@ -25,3 +25,5 @@ sql instructions for local use
 sql local host notes:
 - xampp doesn't seem to use the css or external files(like the pfp png's) but you can still test the php. Use the live server extension to see css changes
 - When files are uploaded to the free host website the config.php file will be changed, this will be done by jacob and will have no affect on your work
+website sql notes
+-my user doesnt have permission to add triggers, i also can't grant myself that permission in the console, therefore migration 2 and 3 are useless. yippie
