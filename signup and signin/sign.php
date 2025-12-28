@@ -20,8 +20,8 @@
       </div>
       <div class="header-right">
         <a href="/index.html" class="material-symbols-outlined home-icon" aria-hidden="true" alt="Home">home</a>
-        <a id="active" href="/Profile page/Profile.html" class="material-symbols-outlined profile-icon">account_circle</a>
-        <a href="#notifications" class="material-symbols-outlined noti-icon">notifications</a>
+        <a id="active" href="/signup and signin/sign.php?sign=in" class="material-symbols-outlined profile-icon">account_circle</a>
+        <a href="/signup and signin/sign.php?sign=up" class="material-symbols-outlined noti-icon">notifications</a>
         <a href="/Watchlist and favoutrites/Watchlist.html" class="material-symbols-outlined tv-icon">live_tv</a>
       </div>
     </header>
