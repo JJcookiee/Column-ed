@@ -1,7 +1,7 @@
 <div class="sign-container">
     <div class="sign-box">
         <h2>Sign In</h2>
-        <form action="/signup and signin/login.php" method="post">
+        <form action="login.php" method="post">
             <?php
             $up = "username";
             $pp = "password";

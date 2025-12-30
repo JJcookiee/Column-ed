@@ -6,8 +6,8 @@
     <?php require 'userinfo.php'?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Column-ed</title>
-    <link rel="icon" type="image/x-icon" href="/Profile page/Column-ed.png"/>
-    <link rel="stylesheet" href="/Profile page/Profile.css"/>
+    <link rel="icon" type="image/x-icon" href="Column-ed.png"/>
+    <link rel="stylesheet" href="Profile.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <body>
     <header class="header">
@@ -20,17 +20,17 @@
       </form>
       </div>
       <div class="header-right">
-        <a href="/index.html" class="material-symbols-outlined home-icon" aria-hidden="true" alt="Home">home</a>
-        <a id="active" href="/Profile page/Profile.html" class="material-symbols-outlined profile-icon">account_circle</a>
-        <a href="#notifications" class="material-symbols-outlined noti-icon">notifications</a>
-        <a href="/Watchlist and favoutrites/Watchlist.html" class="material-symbols-outlined tv-icon">live_tv</a>
+        <a href="index.html" class="material-symbols-outlined home-icon" aria-hidden="true" alt="Home">home</a>
+        <a id="active" href="sign.php?sign=in" class="material-symbols-outlined profile-icon">account_circle</a>
+        <a href="sign.php?sign=up" class="material-symbols-outlined noti-icon">notifications</a>
+        <a href="Watchlist.html" class="material-symbols-outlined tv-icon">live_tv</a>
       </div>
     </header>
 
     <section class="profile-header">
       <div class="avatar">
         <?php
-        echo "<img src='/images/$pfp' alt='Avatar' />";
+        echo "<img src='$pfp' alt='Avatar' />";
         ?>
       </div>
       <div class="profile-info">

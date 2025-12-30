@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Column-ed</title>
-    <link rel="icon" type="image/x-icon" href="/Profile page/Column-ed.png"/>
-    <link rel="stylesheet" href="/signup and signin/sign.css"/>
+    <link rel="icon" type="image/x-icon" href="Column-ed.png"/>
+    <link rel="stylesheet" href="sign.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   </head>
   <body>
@@ -19,10 +19,10 @@
       </form>
       </div>
       <div class="header-right">
-        <a href="/index.html" class="material-symbols-outlined home-icon" aria-hidden="true" alt="Home">home</a>
-        <a id="active" href="/signup and signin/sign.php?sign=in" class="material-symbols-outlined profile-icon">account_circle</a>
-        <a href="/signup and signin/sign.php?sign=up" class="material-symbols-outlined noti-icon">notifications</a>
-        <a href="/Watchlist and favoutrites/Watchlist.html" class="material-symbols-outlined tv-icon">live_tv</a>
+        <a href="index.html" class="material-symbols-outlined home-icon" aria-hidden="true" alt="Home">home</a>
+        <a id="active" href="sign.php?sign=in" class="material-symbols-outlined profile-icon">account_circle</a>
+        <a href="sign.php?sign=up" class="material-symbols-outlined noti-icon">notifications</a>
+        <a href="Watchlist.html" class="material-symbols-outlined tv-icon">live_tv</a>
       </div>
     </header>
 
