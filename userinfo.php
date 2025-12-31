@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['user_id'])) {
+  header("Location: index.html");
+  exit();
+}
 
 $usersql = "SELECT user_id, user_name, bio, display_name, pfp FROM users where user_id = " . intval($_SESSION['user_id']);
 $result = $conn->query($usersql);
@@ -13,7 +17,7 @@ if ($result->num_rows > 0) {
     $pfp = $row["pfp"];
   }
 } else {
-  echo '<script>console.log("No profile found"); </script>';
+  error_log("User not found: ID " . intval($_SESSION['user_id']));
   header("Location: index.html");
   exit();
 }

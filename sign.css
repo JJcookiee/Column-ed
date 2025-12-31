@@ -463,16 +463,29 @@ body {
   text-align: center;
   justify-content: center;
   margin-top: 10px;
-  width: auto;
+  width: 250px;
 }
 
 .sign-container {
   background-color: #616d86;
   padding: 10px;
-  margin: 50px 215px;
+  margin: 50px auto;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: auto;
+  width: max-content;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.sign-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 60px;
+  margin: 40px auto;
+  padding: 0 60px;
 }
 
 .input-field.error {

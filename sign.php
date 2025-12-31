@@ -10,7 +10,7 @@
   </head>
   <body>
     <header class="header">
-      <a href="#home" class="logo">Column-ed</a>
+      <a href="index.html" class="logo">Column-ed</a>
       <form>
         <div class="searchbar">
           <span class="search-icon material-symbols-outlined">search</span>
@@ -29,7 +29,7 @@
     <section class="profile-header">      
     </section>
 
-    <section class="poster-section">
+    <section class="sign-section">
         <?php
         $sign = htmlspecialchars($_GET["sign"] ?? "in");
         if ($sign === "up") {

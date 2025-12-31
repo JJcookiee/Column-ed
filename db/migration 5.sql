@@ -1,0 +1,1 @@
+ALTER TABLE `users` CHANGE `password_hash` `password` VARCHAR(50) NOT NULL;

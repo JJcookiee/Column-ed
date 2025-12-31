@@ -13,7 +13,7 @@
             </div>
             <div class="input-field">
                 <span class="sign-inputs">Display name</span>
-                <input type="password" name="repeat" placeholder="display name" required />
+                <input type="text" name="repeat" placeholder="display name" required />
             </div>
             <div class="input-field">
                 <span class="sign-inputs">Password</span>
@@ -21,7 +21,7 @@
                 <input type="password" name="password" placeholder=<?=$pp ?> required />
             </div>
             <div class="input-field">
-                <span class="sign-inputs">Repeate password</span>
+                <span class="sign-inputs">Repeat password</span>
                 <?php if(isset($_GET['error']) && $_GET['error'] === 'password') { $pp = 'Password not repeated'; } ?>
                 <input type="password" name="repeat" placeholder=<?=$pp ?> required />
             </div>

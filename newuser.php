@@ -9,9 +9,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     require 'host.php';
     
-    $existsql = "SELECT COUNT(*) AS total FROM users WHERE user_name = '$username'";
-    $result = $conn->query($existsql);
-    if ($result->num_rows > 0) {
+    $existsql = "SELECT COUNT(*) AS total FROM users WHERE user_name = ?";
+    $stmt_check = $conn->prepare($existsql);
+    $stmt_check->bind_param("s", $username);
+    $stmt_check->execute();
+    $stmt_check->bind_result($total);
+    $stmt_check->fetch();
+    $stmt_check->close();
+    if ($total > 0) {
         header("Location: sign.php?error=user&sign=up");
         exit();
     }
@@ -27,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
 
     $_SESSION['user_id'] = mysqli_insert_id($conn);
-    header("Location: /profile page/Profile.php");
+    header("Location: profile.php");
     exit();
 }
 ?>
