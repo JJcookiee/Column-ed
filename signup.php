@@ -13,7 +13,7 @@
             </div>
             <div class="input-field">
                 <span class="sign-inputs">Display name</span>
-                <input type="text" name="repeat" placeholder="display name" required />
+                <input type="text" name="display_name" placeholder="display name" required />
             </div>
             <div class="input-field">
                 <span class="sign-inputs">Password</span>

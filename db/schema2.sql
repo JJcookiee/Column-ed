@@ -7,7 +7,7 @@ CREATE TABLE media_types (
 CREATE TABLE users (
     user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     user_name VARCHAR(50) NOT NULL,
-    password_hash VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     UNIQUE KEY uq_users_username (user_name),
     UNIQUE KEY uq_users_email (email)
