@@ -70,12 +70,12 @@
 
       <div class="follow-container">
         <div class="followers">
-          <span class="num">401</span>
+          <?= "<span class='num'>$followers</span>" ?>
           <a href="#followers" class="label">Followers</a>
         </div>
 
         <div class="followers">
-          <span class="num">224</span>
+          <?= "<span class='num'>$following</span>" ?>
           <a href="#following" class="label">Following</a>
         </div>
       </div>

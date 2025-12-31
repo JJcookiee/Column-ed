@@ -25,20 +25,37 @@ if ($result->num_rows > 0) {
 $dsql = "SELECT COUNT(*) AS total FROM diary WHERE user_id = $id";
 $dresult = $conn->query($dsql);
 if (!is_string($dresult)) {
-  echo '<script>console.log("Error: " . $conn->error); </script>';
+  error_log("Error: " . $conn->error);
   $dresult = "0";
 }
+
 $revsql = "SELECT COUNT(*) AS total FROM reviews WHERE user_id = $id";
 $revresult = $conn->query($revsql);
 if (!is_string($revresult)) {
-  echo '<script>console.log("Error: " . $conn->error); </script>';
+  error_log("Error: " . $conn->error);
   $revresult = "0";
 }
+
 $favsql = "SELECT COUNT(*) AS total FROM favourites WHERE user_id = $id";
 $favresult = $conn->query($favsql);
 if (!is_string($favresult)) {
-  echo '<script>console.log("Error: " . $conn->error); </script>';
+  error_log("Error: " . $conn->error);
   $favresult = "0";
 }
+
+$followingsql = "SELECT COUNT(*) AS total FROM user_follows WHERE follower_id = $id";
+$following = $conn->query($followingsql);
+if (!is_string($following)) {
+  error_log("Error: " . $conn->error);
+  $following = "0";
+}
+
+$followerssql = "SELECT COUNT(*) AS total FROM user_follows WHERE followed_id = $id";
+$followers = $conn->query($followerssql);
+if (!is_string($followers)) {
+  error_log("Error: " . $conn->error);
+  $followers = "0";
+}
+
 $conn->close();
 ?>
