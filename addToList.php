@@ -43,6 +43,8 @@ if($list_type === 'to_watch'){
     }  
 }
 
+//add remove from list code
+
 //$list_type = null;
 //$media_id = null; //idk if they need resetting or not yk
 ?>

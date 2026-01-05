@@ -30,18 +30,17 @@
     </section>
 
     <section class="sign-section">
-        <?php
-        $sign = htmlspecialchars($_GET["sign"] ?? "in");
-        if ($sign === "up") {
-            include 'signup.php';
-        } else {
-            include 'signin.php';
-        }
-        ?>     
-        <button onclick="topFunction() "class="anchor-button" id="anchor-button">
-        <i data-lucide="arrow-up"></i>
-    </button>
-
+      <?php
+      $sign = htmlspecialchars($_GET["sign"] ?? "in");
+      if ($sign === "up") {
+          include 'signup.php';
+      } else {
+          include 'signin.php';
+      }
+      ?>     
+      <button onclick="topFunction() "class="anchor-button" id="anchor-button">
+      <i data-lucide="arrow-up"></i>
+      </button>
     </section>
 
     <script src="sign.js"></script>
