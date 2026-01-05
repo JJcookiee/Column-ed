@@ -275,7 +275,7 @@ function renderCarousel(results, type) {
 
     img.addEventListener("click", () => {
       window.location.href =
-        `/content page/content.html?id=${item.id}&type=${type}`;
+        `content.html?id=${item.id}&type=${type}`;
     });
 
     carouselTrack.appendChild(img);
@@ -329,7 +329,7 @@ function renderTrending(results, type) {
     if (!item.poster_path) return;
 
     const a = document.createElement("a");
-    a.href = `/content page/content.html?id=${item.id}&type=${type}`;
+    a.href = `content.html?id=${item.id}&type=${type}`;
     a.className = "posterContainer";
     a.innerHTML = `<img src="${IMG_POSTER + item.poster_path}" alt="${item.title || item.name}">`;
 
@@ -431,7 +431,7 @@ function showResults(results){
       button.textContent = year ? `${title} (${year})` : title;
 
       button.addEventListener("click", () => {
-        window.location.href = `/content page/content.html?id=${item.id}&type=${item.media_type}`;
+        window.location.href = `content.html?id=${item.id}&type=${item.media_type}`;
       });
 
       li.appendChild(button);
