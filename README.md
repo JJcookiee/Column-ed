@@ -39,11 +39,12 @@ Build:
     Code is ran client-side by chrome or your browser while server side code is ran either by Xampp is on localhost or infinityfree(our web host)
 
 API breakdown:
-    instructions for use/implementation:
-    -
-    Description:
-    - 
-(will be updated by andrew once hes worked this out)(did this require a license, if so update line 36)
+1) The API key can be found in any one of the API javascript files and is in the variable "apiKey"
+2) This website uses The Movie Database (TMDB) so all documentation can be found at: https://developer.themoviedb.org/reference/getting-started, this will contain all the details that can
+be fecthed from TMDB to be implemented on the website and the code for it
+3) On the documentation site use "V3" (in the top left of the page), it should default to this when you open the page
+4) When using the TMDB documentation ensure you have selected the javascript language as that is what this website uses for API's
+5) If you encounter any errors please refer to: https://developer.themoviedb.org/docs/errors
 
 
 
