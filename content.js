@@ -270,14 +270,22 @@ if (movieId) {
   let currentRating = 0;
 
   // --- Load saved states ---
-  const savedWatched =
-    localStorage.getItem(`watchedStatus_${movieId}`) === "true";
-  const savedFavourite =
-    localStorage.getItem(`favourite_${movieId}`) === "true";
-  const savedWatchlist =
-    localStorage.getItem(`watchlist_${movieId}`) === "true";
-  const savedRating =
-    parseFloat(localStorage.getItem(`rating_${movieId}`)) || 0;
+  let savedWatched = localStorage.getItem(`watchedStatus_${movieId}`) === "true";
+  let savedFavourite = localStorage.getItem(`favourite_${movieId}`) === "true";
+  let savedWatchlist = localStorage.getItem(`watchlist_${movieId}`) === "true";
+  
+  fetch('getLists.php', {
+    method: 'Get',
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.diary !== undefined) { saveWatched = data.diary; }
+    if (data.favourites !== undefined) { savedFavourite = data.favourites; }
+    if (data.to_watch !== undefined) { savedWatchlist = data.to_watch; }
+  }).catch(err => {
+    console.error("JS PARSE ERROR:", err);
+  });
+  const savedRating = parseFloat(localStorage.getItem(`rating_${movieId}`)) || 0;
 
   watchedCheckbox.checked = savedWatched;
   seenIcon.classList.toggle("active", savedWatched);
@@ -308,29 +316,91 @@ if (movieId) {
     const newState = !watchedCheckbox.checked;
     watchedCheckbox.checked = newState;
     seenIcon.classList.toggle("active", newState);
+    const isActive = seenIcon.classList.contains("active");
     localStorage.setItem(`watchedStatus_${movieId}`, newState);
+    fetch('setWatched.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        watched: `${movieId}`,
+        active: isActive
+      })
+    })
+    .then(res => res.text())
+    .then(text => {
+      console.log("RAW RESPONSE:", text);
+      return JSON.parse(text);
+    })
+    .then(data => console.log(data))
+    .catch(err => console.error("JS PARSE ERROR:", err));
   });
 
   // --- Favourite toggle ---
   favouriteIcon.addEventListener("click", (e) => {
     e.preventDefault();
     e.stopPropagation();
+    const wasActive = favouriteIcon.classList.contains("active");
     favouriteIcon.classList.toggle("active");
+    const isActive = favouriteIcon.classList.contains("active");
     localStorage.setItem(
       `favourite_${movieId}`,
-      favouriteIcon.classList.contains("active")
+      isActive
     );
+    fetch('setFavourite.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        favourite: `${movieId}`,
+        active: isActive
+      })
+    })
+    .then(res => res.text())
+    .then(text => {
+      console.log("RAW RESPONSE:", text);
+      return JSON.parse(text);
+    })
+    .then(data => console.log(data))
+    .catch(err => {
+      console.error("JS PARSE ERROR:", err);
+      favouriteIcon.classList.toggle("active",wasActive);
+    });
   });
 
   // --- Watchlist toggle ---
   watchlistIcon.addEventListener("click", (e) => {
     e.preventDefault();
     e.stopPropagation();
+    const wasActive = watchlistIcon.classList.contains("active");
     watchlistIcon.classList.toggle("active");
+    const isActive = watchlistIcon.classList.contains("active");
     localStorage.setItem(
       `watchlist_${movieId}`,
       watchlistIcon.classList.contains("active")
     );
+    fetch('setWatch.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        watch: `${movieId}`,
+        active: isActive
+      })
+    })
+    .then(res => res.text())
+    .then(text => {
+      console.log("RAW RESPONSE:", text);
+      return JSON.parse(text);
+    })
+    .then(data => console.log(data))
+    .catch(err => {
+      console.error("JS PARSE ERROR:", err);
+      watchlistIcon.classList.toggle("active", wasActive);
+    });
   });
 
   // --- Rating stars ---

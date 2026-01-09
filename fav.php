@@ -1,16 +1,22 @@
 <?php
+require 'host.php';
 session_start();
 
-require 'host.php';
+$user_id = $_SESSION['user_id'] ?? null;
 
-$sql = "
-    SELECT m.title, m.api_id
-    FROM favourites d
-    JOIN media m ON d.media_id = m.media_id
-    WHERE d.user_id = " . intval($_SESSION['user_id']);
-$result = $conn->query($sql);
-$row = $result->fetch_assoc();
+if (!isset($user_id)) {
+    echo json_encode(['success' => false, 'msg' => 'No data']);
+    exit;
+}
 
-$title = $row['title'];
-$id = $row['id'];
+$sql = "SELECT m.api_id FROM favourites f JOIN media m ON f.media_id = m.media_id WHERE f.user_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$list= [];
+while ($row = $result->fetch_assoc()) {
+    $list[] = $row['api_id'];
+}
+echo json_encode($list);
 ?>

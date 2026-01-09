@@ -54,7 +54,7 @@
       </div>
       <div class='stat'>
         <span class='num'>$favresult</span>
-        <a href='watchlist.html' class='label'>Favoutrites</a>
+        <a href='watchlist.html' class='label'>Favourtites</a>
       </div>
     </section>";
     ?>

@@ -17,6 +17,11 @@ window.onscroll = function () {
   scrollFunction();
 };
 
+window.addEventListener("DOMContentLoaded", async () => {
+  watchlist = await getWatchlist();
+  renderPosters(watchlist);
+});
+
 function scrollFunction() {
   if (
     document.body.scrollTop > 20 ||
@@ -45,10 +50,10 @@ function renderPosters(list) {
       if (!poster.poster_path) return;
 
       const a = document.createElement("a");
-      a.href = `/content page/content.html?id=${poster.id}`;
+      a.href = `content.html?id=${poster.id}`;
       a.className = "rectangle";
       a.title = poster.title;
-      a.innerHTML = `<img src="${IMG_POSTER + poster.poster_path}" alt="${poster.title || poster.name}">`;
+      a.innerHTML = `<img src="${IMG_PATH + poster.poster_path}" alt="${poster.title || poster.name}" class="movie_img_rounded">`;
 
       rectangles.appendChild(a);
     });
@@ -110,10 +115,10 @@ if (!movieId) {
 }
 
 async function fetchPoster(data) {
-  const promises = data.map(async item => {
+  const promises = data.map(async (id) => {
     try {
       const res = await fetch(
-        `${BASE_URL}/movie/${item.id}?api_key=${apiKey}`
+        `${BASE_URL}/movie/${id}?api_key=${apiKey}`
       );
       return await res.json();
     } catch (err) {
@@ -175,7 +180,7 @@ function showResults(results){
       button.textContent = year ? `${title} (${year})` : title;
 
       button.addEventListener("click", () => {
-        window.location.href = `/content page/content.html?id=${item.id}&type=${item.media_type}`;
+        window.location.href = `content.html?id=${item.id}&type=${item.media_type}`;
       });
 
       li.appendChild(button);
