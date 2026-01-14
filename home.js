@@ -441,3 +441,91 @@ function showResults(results){
 }
 
 fetchMovies();
+
+//Frineds and Ratings section
+
+profileList = [];
+ratingList = [];
+
+// Fetch profile and rating data
+
+async function fetchProfiles(){
+  try {
+    const res = await fetch("getProfiles.php");
+    const data = await res.json();
+    profileList = data.map(item => ({
+      user_id: item.user_id,
+      name: item.name,
+      pfp: item.pfp,
+      bio: item.bio
+    }));
+  } catch (err) {
+    console.error("Fetch Profiles Error:", err);
+  }
+}
+
+async function fetchRatings(){
+  try {
+    const res = await fetch("getRatings.php");
+    const data = await res.json();
+    profileList = data.map(item => ({
+      name: item.name,
+      pfp: item.pfp,
+      rating: item.rating,
+      api_id: item.api_id
+    }));
+  } catch (err) {
+    console.error("Fetch Ratings Error:", err);
+  }
+}
+
+// Display profile and rating data
+
+async function displayProfiles(){
+  await fetchProfiles();
+  const container = document.getElementById("profile-panel");
+  container.innerHTML = "";
+  profileList.forEach(profile => {
+    const prof = document.createElement("div");
+    prof.classList.add("profile-rectangle");
+    prof.innerHTML = `
+      <a href="#"></a>
+      <img src="${profile.pfp}" alt="Profile Picture">
+      <span class="profile-name">${profile.name}</span>
+    `;
+    container.appendChild(prof);
+  });
+}
+
+async function displayRatings(){
+  await fetchRatings();
+  const container = document.getElementById("trends-section");
+  container.innerHTML = "";
+  for (const rating of ratingList) {
+    const media_name = await getMediaName(rating.api_id);
+    const rate = document.createElement("div");
+    rate.classList.add("profile-rectangle", "profile-pic-1");
+    rate.innerHTML = `
+      <a href="#"></a>
+      <img src="${rating.pfp}" alt="Picture">
+      <span class="trends-txt">${rating.name} rates ${media_name} a ${rating.rating}</span>`;
+    container.appendChild(rate);
+  }
+}
+
+async function getMediaName(api_id){
+  try {
+    const res = await fetch(
+      `https://api.themoviedb.org/3/${type}/${api_id}?api_key=${apiKey}&append_to_response=credits`
+    );
+    const movie = await res.json();
+
+    movie_name = movie.title || movie.name || "this movie";
+  } catch (error) {
+    console.error("Error fetching movie:", error);
+  }
+  return media_name;
+}
+
+displayProfiles();
+displayRatings();

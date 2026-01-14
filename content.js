@@ -47,7 +47,26 @@ function topFunction() {
 }
 
 const stars = document.querySelectorAll(".rating input");
+
 let currentRating = 0;
+let textarea = document.getElementById("text");
+let dateInput = document.getElementById("date");
+
+fetch('getReview.php', {
+  method: 'Get',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+})
+.then(res => res.json())
+.then(data => {
+  if (data.review !== undefined) { textarea.value = data.review; }
+  if (data.rating !== undefined) { currentRating = data.rating; }
+  if (data.date !== undefined) { dateInput.value = data.date; }
+}).catch(err => {
+  console.error("JS PARSE ERROR:", err);
+});
+updateStars(currentRating);
 
 function updateStars(rating) {
   stars.forEach((star) => {
@@ -86,7 +105,29 @@ stars.forEach((star) => {
   });
 });
 
+submit = document.getElementById("submit-review");
 
+submit.addEventListener("click", () => {
+  fetch('setReview.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      api_id: `${movieId}`,
+      rating: currentRating,
+      review: textarea.value,
+      date: dateInput.value
+    })
+  })
+  .then(res => res.text())
+  .then(text => {
+    console.log("RAW RESPONSE:", text);
+    return JSON.parse(text);
+  })
+  .then(data => console.log(data))
+  .catch(err => console.error("JS PARSE ERROR:", err));
+});
 
 // api stuff
 
@@ -273,9 +314,12 @@ if (movieId) {
   let savedWatched = localStorage.getItem(`watchedStatus_${movieId}`) === "true";
   let savedFavourite = localStorage.getItem(`favourite_${movieId}`) === "true";
   let savedWatchlist = localStorage.getItem(`watchlist_${movieId}`) === "true";
-  
+
   fetch('getLists.php', {
     method: 'Get',
+    headers: {
+      'Content-Type': 'application/json'
+    },
   })
   .then(res => res.json())
   .then(data => {

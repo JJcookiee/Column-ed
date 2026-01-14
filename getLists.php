@@ -5,7 +5,7 @@ session_start();
 $user_id = $_SESSION['user_id'] ?? null;
 $api_id = $_GET['id'] ?? null;
 
-if (!isset($user_id) || !$api) {
+if (!isset($user_id) || !$api_id) {
     echo json_encode(['success' => false, 'msg' => 'No data']);
     exit;
 }
@@ -21,4 +21,7 @@ foreach ($lists as $list) {
     $row = $result->fetch_assoc();
     $response[$list] = (bool)$row['saved'];
 }
+
+echo json_encode($response);
+$stmt->close();
 ?>

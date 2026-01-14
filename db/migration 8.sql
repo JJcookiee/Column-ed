@@ -1,0 +1,1 @@
+ALTER TABLE `reviews` CHANGE `title` `rating` INT(5) NOT NULL;

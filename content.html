@@ -140,7 +140,7 @@
             <label for="watched">Watched on</label>
 
             <div class="date-container">
-              <input type="date" class="date-input" placeholder="Select date" />
+              <input type="date" class="date-input" placeholder="Select date" id="date"/>
               <div class="datepicker" hidden>
                 <div class="datepicker-header">
                   <button class="prev">Prev</button>
@@ -194,7 +194,7 @@
           </div>
         </div>
 
-        <textarea class="textarea" placeholder="Type your review..."></textarea>
+        <textarea class="textarea" placeholder="Type your review..." id="text"></textarea>
 
         <div class="controls">
           <div class="rating" id="rating">
@@ -204,7 +204,7 @@
           <input type="radio" id="star4" value="4"><label for="star4"></label>
           <input type="radio" id="star5" value="5"><label for="star5"></label>
           </div>
-          <button class="submitButton">Submit</button>
+          <button class="submitButton" id="submit-review">Submit</button>
         </div>
       </div>
     </div>
