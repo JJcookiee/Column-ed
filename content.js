@@ -308,7 +308,7 @@ if (movieId) {
   const favouriteIcon = document.querySelector(".favourite");
   const watchlistIcon = document.querySelector(".watchlist");
   const stars = document.querySelectorAll(".rating input");
-  let currentRating = 0;
+  let currentRating = currentRating || 0;
 
   // --- Load saved states ---
   let savedWatched = localStorage.getItem(`watchedStatus_${movieId}`) === "true";

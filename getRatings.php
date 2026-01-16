@@ -2,6 +2,7 @@
 require 'host.php';
 session_start();
 
+$response = [];
 $sql = "Select u.display_name, u.pfp, r.rating, m.api_id from users u join reviews r on u.user_id = r.user_id left join media m on r.media_id = m.media_id order by rand() limit 5";
 $stmt = $conn->prepare($sql);
 $stmt->execute();

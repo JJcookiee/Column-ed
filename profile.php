@@ -11,13 +11,22 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <body>
     <header class="header">
-      <a href="#home" class="logo">Column-ed</a>
-      <form>
-        <div class="searchbar">
+      <a href="index.html" class="logo">Column-ed</a>
+      <!--Search-->
+      <div class="searchbar">
+
+        <form action="#" autocomplete="off">
+
           <span class="search-icon material-symbols-outlined">search</span>
-          <input class="search-input" type="search" placeholder="Search for media...">
-        </div>
-      </form>
+          <input class="search-input" type="text" placeholder="Search for media...">
+
+        </form>
+
+        <ul id="search-results">
+        
+        </ul>
+
+      </div>
       </div>
       <div class="header-right">
         <a href="index.html" class="material-symbols-outlined home-icon" aria-hidden="true" alt="Home">home</a>

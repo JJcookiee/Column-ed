@@ -30,7 +30,7 @@ function createMovieCard(media) {
     movieCard.classList.add("rectangle");
 
     movieCard.innerHTML = `
-        <a href="/content page/content.html?id=${id}">
+        <a href="content.html?id=${id}">
             <img 
               src="https://image.tmdb.org/t/p/w500/${poster_path}" 
               class="movie_img_rounded"
@@ -103,7 +103,7 @@ function showResults(results){
       button.textContent = year ? `${title} (${year})` : title;
 
       button.addEventListener("click", () => {
-        window.location.href = `/content page/content.html?id=${item.id}&type=${item.media_type}`;
+        window.location.href = `content.html?id=${item.id}&type=${item.media_type}`;
       });
 
       li.appendChild(button);

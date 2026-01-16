@@ -440,8 +440,6 @@ function showResults(results){
 
 }
 
-fetchMovies();
-
 //Frineds and Ratings section
 
 profileList = [];
@@ -468,7 +466,7 @@ async function fetchRatings(){
   try {
     const res = await fetch("getRatings.php");
     const data = await res.json();
-    profileList = data.map(item => ({
+    ratingList = data.map(item => ({
       name: item.name,
       pfp: item.pfp,
       rating: item.rating,
@@ -520,7 +518,7 @@ async function getMediaName(api_id){
     );
     const movie = await res.json();
 
-    movie_name = movie.title || movie.name || "this movie";
+    media_name = movie.title || movie.name || "this media";
   } catch (error) {
     console.error("Error fetching movie:", error);
   }

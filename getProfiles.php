@@ -2,6 +2,7 @@
 require 'host.php';
 session_start();
 
+$response = [];
 $sql = "Select user_id, display_name, pfp, bio from users order by rand() limit 5";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
