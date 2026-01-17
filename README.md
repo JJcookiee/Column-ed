@@ -56,7 +56,7 @@ instructions for local host of mysql db:
 5) start mysql and apache
 6) click mysql 'admin' button. this should open phpmyadmin
 7) create new database and name it after the project
-8) import schema2.sql and seed.sql files into phpmyadmin. or just copy the code into the console
+8) import schema3.sql into phpmyadmin. or just copy the code into the console (There is schema 1 and 2 and migration files but they have been condenced in schema3)
 9) import migration files aswell, in order
 10) create file config.php with host, username, password, name variables. make sure config.php is in the gitignore. an exmaple for this file is in the shared docs
 11) when connecting in php use sample code in 'host.php', or just require 'host.php' when accessing db
